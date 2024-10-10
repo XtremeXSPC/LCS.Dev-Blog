@@ -10,7 +10,10 @@ paginate = 5
   # the list of set content will show up on your index page (baseurl).
   contentTypeName = "posts"
 
-  # if you set this to 0, only submenu trigger will be visible
+  # ["orange", "blue", "red", "green", "pink"]
+  themeColor = "red"
+  
+# if you set this to 0, only submenu trigger will be visible
   showMenuItems = 2
 
   # show selector to switch language
@@ -48,13 +51,13 @@ paginate = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
+    title = "LCS.Dev - Computer Science Topics"
 
     [languages.en.params]
-      subtitle = "A simple, retro theme for Hugo"
-      owner = ""
-      keywords = ""
-      copyright = ""
+      subtitle = "A collection of computer science topics"
+      owner = "LCS.Dev"
+      keywords = "Computer Science, Operating Systems, Algorithms, Data Structures, Networking, Programming Languages"
+      copyright = "Lombardi Costantino"
       menuMore = "Show more"
       readMore = "Read more"
       readOtherPosts = "Read other posts"
@@ -66,7 +69,7 @@ paginate = 5
       words = "words"
 
       [languages.en.params.logo]
-        logoText = "Terminal"
+        logoText = "Menu"
         logoHomeLink = "/"
 
       [languages.en.menu]
@@ -78,3 +81,11 @@ paginate = 5
           identifier = "showcase"
           name = "Showcase"
           url = "/showcase"
+
+[module]
+  # In case you would like to make changes to the theme and keep it locally in you repository,
+  # uncomment the line below (and correct the local path if necessary).
+  # --
+  # replacements = "github.com/panr/hugo-theme-terminal/v4 -> themes/terminal"
+[[module.imports]]
+
