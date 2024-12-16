@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LCS-Developer Computer Science Journey!</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on LCS-Developer Computer Science Journey!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>//localhost:1313/posts/first-blog-post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/posts/first-blog-post/</guid>
+      <description>&lt;p&gt;Something to show in new Hugo blog posts.
+▶ rsync -av &amp;ndash;delete &amp;ldquo;/Users/lcs-dev/Documents/Obsidian-Vault/XSPC-Vault/Blog/Posts&amp;rdquo; &amp;ldquo;/Users/lcs-dev/04_LCS.Blog/CS-Topics/content/posts&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;//localhost:1313/images/Screenshot%202024-12-16%20at%2014.08.17.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Failed loading config.keymaps&lt;/p&gt;
+&lt;p&gt;/Users/lcs-dev/.config/nvim/lua/config/keymaps.lua:8: module &amp;rsquo;telescope.builtin&amp;rsquo; not found:
+no field package.preload[&amp;rsquo;telescope.builtin&amp;rsquo;]
+cache_loader: module telescope.builtin not found
+cache_loader_lib: module telescope.builtin not found
+no file &amp;lsquo;./telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/share/luajit-2.1/telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/usr/local/share/lua/5.1/telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/usr/local/share/lua/5.1/telescope/builtin/init.lua&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/share/lua/5.1/telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/share/lua/5.1/telescope/builtin/init.lua&amp;rsquo;
+no file &amp;lsquo;./telescope/builtin.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/telescope/builtin.so&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/lib/lua/5.1/telescope/builtin.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/loadall.so&amp;rsquo;
+no file &amp;lsquo;./telescope.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/telescope.so&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/lib/lua/5.1/telescope.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/loadall.so&amp;rsquo;&lt;/p&gt;</description>
+      <content>&lt;p&gt;Something to show in new Hugo blog posts.
+▶ rsync -av &amp;ndash;delete &amp;ldquo;/Users/lcs-dev/Documents/Obsidian-Vault/XSPC-Vault/Blog/Posts&amp;rdquo; &amp;ldquo;/Users/lcs-dev/04_LCS.Blog/CS-Topics/content/posts&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;//localhost:1313/images/Screenshot%202024-12-16%20at%2014.08.17.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Failed loading config.keymaps&lt;/p&gt;
+&lt;p&gt;/Users/lcs-dev/.config/nvim/lua/config/keymaps.lua:8: module &amp;rsquo;telescope.builtin&amp;rsquo; not found:
+no field package.preload[&amp;rsquo;telescope.builtin&amp;rsquo;]
+cache_loader: module telescope.builtin not found
+cache_loader_lib: module telescope.builtin not found
+no file &amp;lsquo;./telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/share/luajit-2.1/telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/usr/local/share/lua/5.1/telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/usr/local/share/lua/5.1/telescope/builtin/init.lua&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/share/lua/5.1/telescope/builtin.lua&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/share/lua/5.1/telescope/builtin/init.lua&amp;rsquo;
+no file &amp;lsquo;./telescope/builtin.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/telescope/builtin.so&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/lib/lua/5.1/telescope/builtin.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/loadall.so&amp;rsquo;
+no file &amp;lsquo;./telescope.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/telescope.so&amp;rsquo;
+no file &amp;lsquo;/opt/homebrew/lib/lua/5.1/telescope.so&amp;rsquo;
+no file &amp;lsquo;/usr/local/lib/lua/5.1/loadall.so&amp;rsquo;&lt;/p&gt;
+&lt;h1 id=&#34;stacktrace&#34;&gt;stacktrace:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;~/.config/nvim/lua/config/keymaps.lua:8&lt;/li&gt;
+&lt;li&gt;/LazyVim/lua/lazyvim/config/init.lua:252&lt;/li&gt;
+&lt;li&gt;/LazyVim/lua/lazyvim/config/init.lua:251 &lt;em&gt;in&lt;/em&gt; &lt;strong&gt;_load&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;/LazyVim/lua/lazyvim/config/init.lua:262 &lt;em&gt;in&lt;/em&gt; &lt;strong&gt;load&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;/LazyVim/lua/lazyvim/config/init.lua:185&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
