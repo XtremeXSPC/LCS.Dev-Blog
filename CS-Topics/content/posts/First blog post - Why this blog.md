@@ -20,7 +20,7 @@ Once you’ve downloaded and installed it on your PC, you’ll be ready to creat
 
 I’ve created a directory called “Blog,” which contains a subdirectory named “posts” (yes, as you’ve probably guessed, it holds all the posts for this blog). This structure keeps my content neatly organized.
 
-![[Pasted image 20241216205055.png|400]]
+!![Image Description](/images/Pasted%20image%2020241216205055.png)
 
 Once you’ve written your first note, it’s time to set up Hugo and dive into some other cool tools.
 

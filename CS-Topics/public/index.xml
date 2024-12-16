@@ -24,7 +24,7 @@
 &lt;p&gt;Once you’ve downloaded and installed it on your PC, you’ll be ready to create amazing notes about whatever interests you the most.&lt;/p&gt;
 &lt;h4 id=&#34;my-main-setup&#34;&gt;My main setup&lt;/h4&gt;
 &lt;p&gt;I’ve created a directory called “Blog,” which contains a subdirectory named “posts” (yes, as you’ve probably guessed, it holds all the posts for this blog). This structure keeps my content neatly organized.&lt;/p&gt;
-&lt;p&gt;![[Pasted image 20241216205055.png|400]]&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020241216205055.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Once you’ve written your first note, it’s time to set up Hugo and dive into some other cool tools.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;time-for-hugo&#34;&gt;Time for HUGO!&lt;/h4&gt;

@@ -21,7 +21,7 @@ for d, name in [(posts_dir, "Posts"), (attachments_dir, "Attachments"), (static_
 os.makedirs(static_images_dir, exist_ok=True)
 
 # Regex to find image references in the form [[image.png]]
-pattern = re.compile(r'\[\[([^]]*\.png)\]\]', re.IGNORECASE)
+pattern = re.compile(r'\[\[([\w\s.-]+\.(?:png|jpg|jpeg|gif|bmp))\]\]', re.IGNORECASE)
 
 # Attempt to get the list of Markdown files in the posts directory
 try:
