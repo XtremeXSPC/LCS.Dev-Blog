@@ -6,7 +6,7 @@ trap 'error_exit "An unexpected error occurred. Check the log for details."' ERR
 blog_dir="${BLOG_DIR:-$HOME/04_LCS.Blog/CS-Topics}"
 sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
 destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
-images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic_Updates/images.py}"
+images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/images.py}"
 
 # GitHub repository for the blog variables
 repo_path="${REPO_PATH:-/Users/lcs-dev/04_LCS.Blog}"
