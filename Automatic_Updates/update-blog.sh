@@ -8,7 +8,7 @@ destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
 images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic_Updates/images.py}"
 
 # GitHub repository for the blog variables
-repo_base="${REPO_BASE:-/Users/lcs-dev/04_LCS.Blog/}"
+repo_path="${REPO_PATH:-/Users/lcs-dev/04_LCS.Blog}"
 myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
 logFile="./script.log"
 
@@ -40,6 +40,8 @@ check_dir() {
 }
 
 initialize_git() {
+    log "Changing to repository directory: $repo_path"
+    cd "$repo_path" || error_exit "Failed to change directory to $repo_path"
     if [ ! -d ".git" ]; then
         log "Initializing Git repository..."
         git init
