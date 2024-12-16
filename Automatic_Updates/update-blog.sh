@@ -3,6 +3,7 @@ set -euo pipefail
 trap 'error_exit "An unexpected error occurred. Check the log for details."' ERR
 
 # Project variables
+blog_dir="${BLOG_DIR:-$HOME/04_LCS.Blog/CS-Topics}"
 sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
 destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
 images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic_Updates/images.py}"
@@ -72,9 +73,11 @@ process_markdown() {
 
 build_hugo_site() {
     log "Building the Hugo site..."
-    local blog_dir="/Users/lcs-dev/04_LCS.Blog/CS-Topics/"
     if ! hugo --source "$blog_dir"; then
         error_exit "Hugo build failed."
+    fi
+    if [ ! -d "$blog_dir/public" ]; then
+        error_exit "Hugo build completed, but 'public' directory was not created."
     fi
 }
 
