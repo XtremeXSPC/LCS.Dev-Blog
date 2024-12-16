@@ -1,11 +1,14 @@
-bin/bash
+#!/bin/bash
 set -euo pipefail
 trap 'error_exit "An unexpected error occurred. Check the log for details."' ERR
 
-# Configurable variables
+# Project variables
 sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
 destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
-images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/CS-Topics/images.py}"
+images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic_Updates/images.py}"
+
+# GitHub repository for the blog variables
+repo_base="${REPO_BASE:-/Users/lcs-dev/04_LCS.Blog/}"
 myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
 logFile="./script.log"
 
@@ -67,7 +70,10 @@ process_markdown() {
 
 build_hugo_site() {
     log "Building the Hugo site..."
-    hugo
+    local blog_dir="/Users/lcs-dev/04_LCS.Blog/CS-Topics/"
+    if ! hugo --source "$blog_dir"; then
+        error_exit "Hugo build failed."
+    fi
 }
 
 stage_and_commit_changes() {
