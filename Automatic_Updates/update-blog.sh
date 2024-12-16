@@ -113,7 +113,7 @@ deploy_to_hostinger() {
         git branch -D hostinger-deploy
     fi
 
-    git subtree split --prefix "$blog_dir/public" -b hostinger-deploy
+    git subtree split --prefix "CS-Topics/public" -b hostinger-deploy
     git push origin hostinger-deploy:hostinger --force
     git branch -D hostinger-deploy
 }
