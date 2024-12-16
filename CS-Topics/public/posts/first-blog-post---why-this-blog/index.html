@@ -51,17 +51,25 @@
   <link rel="stylesheet" href="/css/prism.min.9023bbc24533d09e97a51a0a42a5a7bfe4c591ae167c5551fb1d2191d11977c0.css">
 
   
-  <link rel="stylesheet" href="/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
-
-  
-  <link rel="stylesheet" href="/css/terminal.min.317ad52948a7dd58bcb60a865ff8fbe19c104db0fbb1cbccbd5e2b25b4d25455.css">
+  <link rel="stylesheet" href="/css/terminal.min.f91852fcc583e703635b1e7dba2b98722c7ef0450e0bd94d82a47ba10c23c079.css">
 
   
   <link rel="stylesheet" href="/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
 
+  
+  <link rel="stylesheet" href="/css/tokyo-night.min.7903d694d0aed4e09a3381743c39e9e7283cc5ab05c1f602cf18dfc991c7ecc9.css">
+
+  
+  <link rel="stylesheet" href="/css/syntax.min.cc789ed9377260d7949ea4c18781fc58959a89287210fe4edbff44ebfc1511b6.css">
 
 
 
+
+
+
+
+
+<link rel="stylesheet" href="/css/tokyo-night.css">
 
 
 
@@ -186,7 +194,6 @@
 <p>Once you’ve downloaded and installed it on your PC, you’ll be ready to create amazing notes about whatever interests you the most.</p>
 <h4 id="my-main-setup">My main setup<a href="#my-main-setup" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <p>I’ve created a directory called “Blog,” which contains a subdirectory named “posts” (yes, as you’ve probably guessed, it holds all the posts for this blog). This structure keeps my content neatly organized.</p>
-<p>!<img src="/images/Pasted%20image%2020241216205055.png" alt="Image Description"></p>
 <p>Once you’ve written your first note, it’s time to set up Hugo and dive into some other cool tools.</p>
 <hr>
 <h4 id="time-for-hugo">Time for HUGO!<a href="#time-for-hugo" class="hanchor" ariaLabel="Anchor">#</a> </h4>
@@ -325,14 +332,14 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Verify Hugo works with your theme by running this command</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>hugo server -t themename
-</span></span></code></pre></div><h3 id="walking-through-the-steps">WALKING THROUGH THE STEPS<a href="#walking-through-the-steps" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+</span></span></code></pre></div><h4 id="walking-through-the-steps">WALKING THROUGH THE STEPS<a href="#walking-through-the-steps" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <p><em>NOTE: There is a MEGA SCRIPT later in this blog that will do everything in one go.</em></p>
-<h3 id="syncing-obsidian-to-hugo">SYNCING OBSIDIAN TO HUGO<a href="#syncing-obsidian-to-hugo" class="hanchor" ariaLabel="Anchor">#</a> </h3>
-<h4 id="windowshttpsblognetworkchuckcompostsmy-insane-blog-pipelinewindows">Windows<a href="https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#windows"></a><a href="#windowshttpsblognetworkchuckcompostsmy-insane-blog-pipelinewindows" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+<h4 id="syncing-obsidian-to-hugo">SYNCING OBSIDIAN TO HUGO<a href="#syncing-obsidian-to-hugo" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+<h5 id="windowshttpsblognetworkchuckcompostsmy-insane-blog-pipelinewindows">Windows<a href="https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#windows"></a><a href="#windowshttpsblognetworkchuckcompostsmy-insane-blog-pipelinewindows" class="hanchor" ariaLabel="Anchor">#</a> </h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>robocopy sourcepath destination path /mir
-</span></span></code></pre></div><h4 id="maclinux">Mac/Linux<a href="#maclinux" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+</span></span></code></pre></div><h5 id="maclinux">Mac/Linux<a href="#maclinux" class="hanchor" ariaLabel="Anchor">#</a> </h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rsync -av --delete <span style="color:#e6db74">&#34;sourcepath&#34;</span> <span style="color:#e6db74">&#34;destinationpath&#34;</span>
-</span></span></code></pre></div><h3 id="add-some-frontmatter">Add some FRONTMATTER<a href="#add-some-frontmatter" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+</span></span></code></pre></div><h4 id="add-some-frontmatter">Add some FRONTMATTER<a href="#add-some-frontmatter" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>---
 </span></span><span style="display:flex;"><span>title: blogtitle
 </span></span><span style="display:flex;"><span>date: 2024-11-06
@@ -341,7 +348,7 @@
 </span></span><span style="display:flex;"><span>  - tag1
 </span></span><span style="display:flex;"><span>  - tag2
 </span></span><span style="display:flex;"><span>---
-</span></span></code></pre></div><h3 id="transfer-images-from-obsidian-to-hugo">TRANSFER IMAGES FROM OBSIDIAN TO HUGO<a href="#transfer-images-from-obsidian-to-hugo" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+</span></span></code></pre></div><h4 id="transfer-images-from-obsidian-to-hugo">TRANSFER IMAGES FROM OBSIDIAN TO HUGO<a href="#transfer-images-from-obsidian-to-hugo" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <h4 id="windows">Windows<a href="#windows" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
@@ -417,23 +424,23 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Markdown files processed and images copied successfully.&#34;</span>)
 </span></span></code></pre></div><hr>
-<h3 id="setup-github">SETUP GITHUB<a href="#setup-github" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<h4 id="setup-github">SETUP GITHUB<a href="#setup-github" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <ul>
 <li>Git yourself an account</li>
 <li>Then create a repo</li>
 </ul>
-<h3 id="authenticate-yourself">AUTHENTICATE YOURSELF<a href="#authenticate-yourself" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<h4 id="authenticate-yourself">AUTHENTICATE YOURSELF<a href="#authenticate-yourself" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Generate an SSH key (Mac/Linux/Windows)</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></div><h3 id="push-to-github">PUSH TO GITHUB<a href="#push-to-github" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+</span></span></code></pre></div><h4 id="push-to-github">PUSH TO GITHUB<a href="#push-to-github" class="hanchor" ariaLabel="Anchor">#</a> </h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 8: Push the public folder to the hostinger branch using subtree split and force push</span>
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Deploying to GitHub Hostinger...&#34;</span>
 </span></span><span style="display:flex;"><span>git subtree split --prefix public -b hostinger-deploy
 </span></span><span style="display:flex;"><span>git push origin hostinger-deploy:hostinger --force
 </span></span><span style="display:flex;"><span>git branch -D hostinger-deploy
-</span></span></code></pre></div><h3 id="the-mega-script">THE MEGA SCRIPT<a href="#the-mega-script" class="hanchor" ariaLabel="Anchor">#</a> </h3>
-<h4 id="windows-powershell">WINDOWS (POWERSHELL)<a href="#windows-powershell" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+</span></span></code></pre></div><h4 id="the-mega-script">THE MEGA SCRIPT<a href="#the-mega-script" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+<h5 id="windows-powershell">WINDOWS (POWERSHELL)<a href="#windows-powershell" class="hanchor" ariaLabel="Anchor">#</a> </h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># PowerShell Script for Windows</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Set variables for Obsidian to Hugo copy</span>
@@ -589,7 +596,7 @@
 </span></span><span style="display:flex;"><span>git branch -D hostinger-deploy
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;All done! Site synced, processed, committed, built, and deployed.&#34;</span>
-</span></span></code></pre></div><h3 id="linuxmac-bash">LINUX/MAC (BASH)<a href="#linuxmac-bash" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+</span></span></code></pre></div><h5 id="linuxmac-bash">LINUX/MAC (BASH)<a href="#linuxmac-bash" class="hanchor" ariaLabel="Anchor">#</a> </h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>set -euo pipefail
 </span></span><span style="display:flex;"><span>

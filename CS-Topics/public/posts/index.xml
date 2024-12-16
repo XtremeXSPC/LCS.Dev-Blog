@@ -24,7 +24,6 @@
 &lt;p&gt;Once you’ve downloaded and installed it on your PC, you’ll be ready to create amazing notes about whatever interests you the most.&lt;/p&gt;
 &lt;h4 id=&#34;my-main-setup&#34;&gt;My main setup&lt;/h4&gt;
 &lt;p&gt;I’ve created a directory called “Blog,” which contains a subdirectory named “posts” (yes, as you’ve probably guessed, it holds all the posts for this blog). This structure keeps my content neatly organized.&lt;/p&gt;
-&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020241216205055.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Once you’ve written your first note, it’s time to set up Hugo and dive into some other cool tools.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;time-for-hugo&#34;&gt;Time for HUGO!&lt;/h4&gt;
@@ -163,14 +162,14 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Verify Hugo works with your theme by running this command&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server -t themename
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;walking-through-the-steps&#34;&gt;WALKING THROUGH THE STEPS&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;walking-through-the-steps&#34;&gt;WALKING THROUGH THE STEPS&lt;/h4&gt;
 &lt;p&gt;&lt;em&gt;NOTE: There is a MEGA SCRIPT later in this blog that will do everything in one go.&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&#34;syncing-obsidian-to-hugo&#34;&gt;SYNCING OBSIDIAN TO HUGO&lt;/h3&gt;
-&lt;h4 id=&#34;windowshttpsblognetworkchuckcompostsmy-insane-blog-pipelinewindows&#34;&gt;Windows&lt;a href=&#34;https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#windows&#34;&gt;&lt;/a&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;syncing-obsidian-to-hugo&#34;&gt;SYNCING OBSIDIAN TO HUGO&lt;/h4&gt;
+&lt;h5 id=&#34;windowshttpsblognetworkchuckcompostsmy-insane-blog-pipelinewindows&#34;&gt;Windows&lt;a href=&#34;https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#windows&#34;&gt;&lt;/a&gt;&lt;/h5&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;robocopy sourcepath destination path /mir
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;maclinux&#34;&gt;Mac/Linux&lt;/h4&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;maclinux&#34;&gt;Mac/Linux&lt;/h5&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;rsync -av --delete &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sourcepath&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;destinationpath&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;add-some-frontmatter&#34;&gt;Add some FRONTMATTER&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;add-some-frontmatter&#34;&gt;Add some FRONTMATTER&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;title: blogtitle
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;date: 2024-11-06
@@ -179,7 +178,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - tag1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - tag2
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;transfer-images-from-obsidian-to-hugo&#34;&gt;TRANSFER IMAGES FROM OBSIDIAN TO HUGO&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;transfer-images-from-obsidian-to-hugo&#34;&gt;TRANSFER IMAGES FROM OBSIDIAN TO HUGO&lt;/h4&gt;
 &lt;h4 id=&#34;windows&#34;&gt;Windows&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; os
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; re
@@ -255,23 +254,23 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Markdown files processed and images copied successfully.&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;setup-github&#34;&gt;SETUP GITHUB&lt;/h3&gt;
+&lt;h4 id=&#34;setup-github&#34;&gt;SETUP GITHUB&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Git yourself an account&lt;/li&gt;
 &lt;li&gt;Then create a repo&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;authenticate-yourself&#34;&gt;AUTHENTICATE YOURSELF&lt;/h3&gt;
+&lt;h4 id=&#34;authenticate-yourself&#34;&gt;AUTHENTICATE YOURSELF&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Generate an SSH key (Mac/Linux/Windows)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ssh-keygen -t rsa -b &lt;span style=&#34;color:#ae81ff&#34;&gt;4096&lt;/span&gt; -C &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;your_email@example.com&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;push-to-github&#34;&gt;PUSH TO GITHUB&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;push-to-github&#34;&gt;PUSH TO GITHUB&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Step 8: Push the public folder to the hostinger branch using subtree split and force push&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Deploying to GitHub Hostinger...&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git subtree split --prefix public -b hostinger-deploy
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin hostinger-deploy:hostinger --force
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git branch -D hostinger-deploy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;the-mega-script&#34;&gt;THE MEGA SCRIPT&lt;/h3&gt;
-&lt;h4 id=&#34;windows-powershell&#34;&gt;WINDOWS (POWERSHELL)&lt;/h4&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;the-mega-script&#34;&gt;THE MEGA SCRIPT&lt;/h4&gt;
+&lt;h5 id=&#34;windows-powershell&#34;&gt;WINDOWS (POWERSHELL)&lt;/h5&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# PowerShell Script for Windows&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Set variables for Obsidian to Hugo copy&lt;/span&gt;
@@ -427,7 +426,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git branch -D hostinger-deploy
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Write-Host &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;All done! Site synced, processed, committed, built, and deployed.&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;linuxmac-bash&#34;&gt;LINUX/MAC (BASH)&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;linuxmac-bash&#34;&gt;LINUX/MAC (BASH)&lt;/h5&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;set -euo pipefail
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

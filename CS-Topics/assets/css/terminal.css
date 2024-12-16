@@ -1,6 +1,6 @@
 :root {
-  --background: #1a1b26;
-  --foreground: #c0caf5;
+  --background: #1b1b26;
+  --foreground: #a9b1d6;
   --accent: #7aa2f7;
   --font-size: 1rem;
   --line-height: 1.54rem;
@@ -24,9 +24,9 @@ body {
   padding: 0;
   font-family:
     "Fira Code",
-    Monaco,
-    Consolas,
-     "Ubuntu Mono",
+    "Roboto Mono",
+    "JetBrains Mono",
+    "Ubuntu Mono",
     monospace;
   font-size: 1rem;
   font-weight: 400;
@@ -38,33 +38,83 @@ body {
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   text-size-adjust: 100%;
+  max-width: 100%;
+  text-align: justify;
+  
 }
 
 ::placeholder {
   color: color-mix(in srgb var(--foreground) 50%, black);
 }
 
+/* Stile aggiornato per lo schema Tokyo Night */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7aa2f7; /* Accento */
+  text-transform: uppercase;
+  margin: 1.5rem 0;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #bb9af7; /* Colore distintivo */
+  margin: 1.4rem 0;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #9ece6a; /* Colore terziario */
+  margin: 1.2rem 0;
+}
+
+h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #7dcfff; /* Blu chiaro */
+  margin: 1rem 0;
+}
+
+h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e0af68; /* Oro */
+  margin: 0.8rem 0;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #f7768e; /* Rosa acceso */
+  margin: 0.6rem 0;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #c0caf5; /* Colore testo primario */
+}
+
+/* Sovrascrizioni aggiuntive */
 h1,
 h2 {
-  font-size: calc(var(--font-size) * 1.1);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-h1 {
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: calc(var(--font-size) * 0.2);
+  text-underline-offset: 0.2rem;
 }
 
-h3,
-h4,
-h5,
-h6 {
-  font-size: calc(var(--font-size) * 1.1);
-  letter-spacing: 0.04em;
+a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+/* Margini coerenti per elementi */
 h1,
 h2,
 h3,
@@ -79,10 +129,6 @@ figure,
 video,
 table {
   margin: calc(var(--line-height) * 1.2) 0;
-}
-
-a {
-  color: var(--accent);
 }
 
 button {
@@ -154,6 +200,9 @@ select {
 
 input[type="checkbox"] {
   width: auto;
+  vertical-align: middle;
+  padding: 10px;
+  box-shadow: inset 0 0 0 3px var(--background);
 }
 
 input:focus-visible,
@@ -190,12 +239,6 @@ select {
 
 select option {
   background: var(--background);
-}
-
-input[type="checkbox"] {
-  vertical-align: middle;
-  padding: 10px;
-  box-shadow: inset 0 0 0 3px var(--background);
 }
 
 input[type="checkbox"]:checked {
@@ -251,9 +294,8 @@ ol li {
 code,
 kbd {
   font-family:
-    "Fira Code",
-    Monaco,
-    Consolas,
+    "Source Code Pro",
+    "JetBrains Mono",
     "Ubuntu Mono",
     monospace !important;
   font-feature-settings: normal;
@@ -261,7 +303,7 @@ kbd {
   color: var(--accent);
   padding: 1px 6px;
   margin: 0 2px;
-  font-size: 0.95rem;
+  font-size: 0.9rem; background-color: #1f2335; border-radius: 4px;
 }
 
 kbd {
@@ -283,10 +325,13 @@ pre {
   background: color-mix(in srgb, var(--foreground) 5%, transparent) !important;
   color: var(--foreground);
   padding: 20px 10px;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.95rem !important;
   overflow: auto;
   border-radius: var(--radius);
   border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  background-color: #1f2335;
+  
 }
 
 pre code {
@@ -298,6 +343,7 @@ pre code {
 }
 
 sup {
+  top: -0.25em;
   line-height: 0;
 }
 
@@ -310,10 +356,6 @@ abbr {
 
 sub {
   bottom: -0.25em;
-}
-
-sup {
-  top: -0.25em;
 }
 
 mark {
@@ -370,4 +412,23 @@ hr {
   border: none;
   background: var(--accent);
   height: 2px;
+}
+
+/* Esempio di sovrascrittura */
+.chroma .k { color: #bb9af7; font-weight: bold; } /* Keyword */
+.chroma .na { color: #7aa2f7; } /* Attribute name */
+.chroma .s { color: #9ece6a; font-weight: bold; } /* String */
+.chroma .m { color: #e0af68; font-weight: bold; } /* Number */
+.chroma .c { color: #565f89; } /* Comment */
+.chroma .cp { color: #7dcfff; font-weight: bold; } /* Preprocessor */
+.chroma .gh { font-weight: bold; } /* Heading */
+.chroma .gl { text-decoration: underline; } /* Link */
+
+code {
+  background-color: #2a2b3c;
+  color: #c0caf5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
 }

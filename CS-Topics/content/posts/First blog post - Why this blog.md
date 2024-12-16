@@ -20,7 +20,8 @@ Once you’ve downloaded and installed it on your PC, you’ll be ready to creat
 
 I’ve created a directory called “Blog,” which contains a subdirectory named “posts” (yes, as you’ve probably guessed, it holds all the posts for this blog). This structure keeps my content neatly organized.
 
-!![Image Description](/images/Pasted%20image%2020241216205055.png)
+
+
 
 Once you’ve written your first note, it’s time to set up Hugo and dive into some other cool tools.
 
@@ -174,25 +175,25 @@ paginate = 5
 hugo server -t themename
 ```
 
-### WALKING THROUGH THE STEPS
+#### WALKING THROUGH THE STEPS
 
 _NOTE: There is a MEGA SCRIPT later in this blog that will do everything in one go._
 
-### SYNCING OBSIDIAN TO HUGO
+#### SYNCING OBSIDIAN TO HUGO
 
-#### Windows[](https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#windows)
+##### Windows[](https://blog.networkchuck.com/posts/my-insane-blog-pipeline/#windows)
 
 ```powershell
 robocopy sourcepath destination path /mir
 ```
 
-#### Mac/Linux
+##### Mac/Linux
 
 ```bash
 rsync -av --delete "sourcepath" "destinationpath"
 ```
 
-### Add some FRONTMATTER
+#### Add some FRONTMATTER
 
 ```bash
 ---
@@ -205,7 +206,7 @@ tags:
 ---
 ```
 
-### TRANSFER IMAGES FROM OBSIDIAN TO HUGO
+#### TRANSFER IMAGES FROM OBSIDIAN TO HUGO
 
 #### Windows
 
@@ -290,12 +291,12 @@ print("Markdown files processed and images copied successfully.")
 ```
 
 ---
-### SETUP GITHUB
+#### SETUP GITHUB
 
 - Git yourself an account
 - Then create a repo
 
-### AUTHENTICATE YOURSELF
+#### AUTHENTICATE YOURSELF
 
 ```bash
 ## Generate an SSH key (Mac/Linux/Windows)
@@ -303,7 +304,7 @@ print("Markdown files processed and images copied successfully.")
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-### PUSH TO GITHUB
+#### PUSH TO GITHUB
 
 ```bash
 # Step 8: Push the public folder to the hostinger branch using subtree split and force push
@@ -313,9 +314,9 @@ git push origin hostinger-deploy:hostinger --force
 git branch -D hostinger-deploy
 ```
 
-### THE MEGA SCRIPT
+#### THE MEGA SCRIPT
 
-#### WINDOWS (POWERSHELL)
+##### WINDOWS (POWERSHELL)
 
 ```powershell
 # PowerShell Script for Windows
@@ -475,7 +476,7 @@ git branch -D hostinger-deploy
 Write-Host "All done! Site synced, processed, committed, built, and deployed."
 ```
 
-### LINUX/MAC (BASH)
+##### LINUX/MAC (BASH)
 
 ```bash
 #!/bin/bash
