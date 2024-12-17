@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on LCS.Dev - CS Topics</title>
+    <link>https://lcs-developer.it/posts/</link>
+    <description>Recent content in Posts on LCS.Dev - CS Topics</description>
+    <image>
+      <title>LCS.Dev - CS Topics</title>
+      <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
+      <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
+    </image>
+    <generator>Hugo -- 0.140.0</generator>
+    <language>en-us</language>
+    <atom:link href="https://lcs-developer.it/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://lcs-developer.it/posts/how-memory-pagination-works/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lcs-developer.it/posts/how-memory-pagination-works/</guid>
+      <description>Insert description here</description>
+    </item>
+    <item>
+      <title>My first blog post!</title>
+      <link>https://lcs-developer.it/posts/why-this-blog-and-how-i-manage-it/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lcs-developer.it/posts/why-this-blog-and-how-i-manage-it/</guid>
+      <description>Introduction article</description>
+    </item>
+  </channel>
+</rss>

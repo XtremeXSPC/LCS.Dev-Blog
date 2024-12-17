@@ -1,5 +1,5 @@
+# This is the main configuration file for my personal site.
 baseURL: "https://lcs-developer.it/"
-languageCode: en-us
 title: LCS.Dev - CS Topics
 # paginate: 5
 theme: [PaperMod]
@@ -29,18 +29,6 @@ menu:
       name: Tags
       url: /tags/
       weight: 20
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 30
-    - identifier: archives
-      name: Archive
-      url: /archives/
-      weight: 40
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 50
 
 params:
   # To enable google analytics, opengraph, twitter-cards and schema.
@@ -50,7 +38,7 @@ params:
   keywords: [Blog, Portfolio, PaperMod]
   author: LCS.Dev
   # author: ["Me", "You"] # multiple authors
-  images: ["/images/LCS.Dev-Logo.jpg"]
+  images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
@@ -75,27 +63,21 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/favicon/favicon.ico"
-    favicon16x16: "/favicon/favicon-16x16.png"
-    favicon32x32: "/favicon/favicon-32x32.png"
-    apple_touch_icon: "/favicon/apple-touch-icon.png"
-    safari_pinned_tab: "/favicon/safari-pinned-tab.svg"
-    theme_color: "#ffffff" # Colore principale del tema (opzionale)
-    msapplication_TileColor: "#ffffff" # Colore Tile per Microsoft (opzionale)
+    favicon: "<link / abs url>"
+    favicon16x16: "<link / abs url>"
+    favicon32x32: "<link / abs url>"
+    apple_touch_icon: "<link / abs url>"
+    safari_pinned_tab: "<link / abs url>"
 
-  # Title and icon for the browser tab
   label:
-    text: "LCS.Dev - CS Topics"
-    icon: "👨‍💻"
+    text: "Home"
+    icon: /apple-touch-icon.png
     iconHeight: 35
 
  # Home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Hi! I'm LCS.Dev, a Computer Science Student.
-             I write about Computer Science, Programming, and Technology. 
-             I'm passionate about learning and sharing knowledge.
-             I hope you find my blog helpful. Enjoy reading! 🚀
+    Content: Welcome to my blog
 
   socialIcons:
     - name: "GitHub"
@@ -107,13 +89,13 @@ params:
 
   # Profile-mode
   profileMode:
-    enabled: false # Needs to be explicitly set
+    enabled: false # needs to be explicitly set
     title: LCS.Dev
     subtitle: "Who am I? 🤔"
-    imageUrl: "/images/LCS.Dev-Logo.jpg"
+    imageUrl: "<img location>"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: "LCS.Dev-Logo.jpg"
+    imageTitle: my image
     buttons:
       - name: Posts
         url: posts
@@ -123,11 +105,11 @@ params:
   # Search
   analytics:
     google:
-      SiteVerificationTag: "CPQPKX3QPR"
+      SiteVerificationTag: "XYZabc"
     bing:
-      SiteVerificationTag: ""
+      SiteVerificationTag: "XYZabc"
     yandex:
-      SiteVerificationTag: ""
+      SiteVerificationTag: "XYZabc"
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -135,7 +117,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/"
+    URL: "https://github.com/<path_to_repo>/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -150,13 +132,6 @@ params:
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
-
-# Search feature
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON # necessary for search
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
