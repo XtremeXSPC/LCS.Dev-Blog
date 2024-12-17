@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Coding on LCS.Dev - CS Topics</title>
+    <link>https://lcs-developer.it/tags/coding/</link>
+    <description>Recent content in Coding on LCS.Dev - CS Topics</description>
+    <image>
+      <title>LCS.Dev - CS Topics</title>
+      <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
+      <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
+    </image>
+    <generator>Hugo -- 0.140.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://lcs-developer.it/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How memory pagination works</title>
+      <link>https://lcs-developer.it/posts/how-memory-pagination-works/</link>
+      <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://lcs-developer.it/posts/how-memory-pagination-works/</guid>
+      <description>A brief introduction to memory pagination abstraction.</description>
+    </item>
+  </channel>
+</rss>

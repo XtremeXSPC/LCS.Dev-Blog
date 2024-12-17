@@ -1,3 +1,4 @@
+# Hugo configuration file
 baseURL: "https://lcs-developer.it/"
 languageCode: en-us
 title: LCS.Dev - CS Topics
@@ -91,11 +92,21 @@ params:
 
  # Home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Hi! I'm LCS.Dev, a Computer Science Student.
-             I write about Computer Science, Programming, and Technology. 
-             I'm passionate about learning and sharing knowledge.
-             I hope you find my blog helpful. Enjoy reading! 🚀
+    Title: "Hi there 👋"
+    Content: |
+      Hi! I'm **LCS.Dev**, a Computer Science student passionate about programming, 
+      technology, and free software. I write about:
+
+      - **Computer Science**
+      - **Programming**
+      - **Technology**
+
+      My main focus is on **concurrent systems**, a topic I find both challenging and fascinating.  
+
+      I believe in learning by sharing, and this blog is where I document my journey, explore new ideas,
+      and connect with like-minded enthusiasts.  
+
+      Enjoy reading, and happy coding! 🚀
 
   socialIcons:
     - name: "GitHub"

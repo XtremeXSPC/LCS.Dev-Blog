@@ -1,20 +1,39 @@
 ---
 author: LCS.Dev
-creation date: 2024.12.16
+date: "2024-12-17"
 title: "Why this blog and how I manage it"
-description: Introduction article
-TocOpen: true
+description: A brief description of who I am and how I run my blog.
 draft: false
-searchHidden: false
-categories:
-  - Blogs
+showToc: true
+TocOpen: true
+UseHugoToc: true
+hidemeta: false
+comments: false
+disableHLJS: false
+disableShare: false
+hideSummary: false
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
 tags:
   - Tech
-  - Scripting
-  - Python
-  - Git
-  - Hugo
+categories:
+  - ""
+cover: 
+cover_image: 
+cover_alt: 
+cover_caption: 
+cover_relative: false
+cover_hidden: true
+editPost: 
+editPost_URL: https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/
+editPost_Text: Suggest Changes
+editPost_appendFilePath: true
 ---
+
 Hello everyone! My name is Costantino. I’m a computer science student and a tech enthusiast. The main purpose of this blog is to explore and share insights on some of the most exciting topics in the fascinating world of computer science.
 
 Let me start by explaining how I write and manage this blog.

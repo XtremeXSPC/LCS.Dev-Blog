@@ -2,7 +2,7 @@
 author: LCS.Dev
 date: "2024-12-17"
 title: "How memory pagination works"
-description: Insert description here
+description: A brief introduction to memory pagination abstraction.
 draft: false
 showToc: true
 TocOpen: false
@@ -18,13 +18,16 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
-tags: 
+tags:
+  - Operating-Systems
+  - Virtual-Memory
+  - Coding
 categories:
-  - ""
+  - Operating Systems
 cover: 
-cover_image: /images/cover.jpg
-cover_alt: An example cover image
-cover_caption: This is a caption for the cover image
+cover_image: 
+cover_alt: 
+cover_caption: 
 cover_relative: false
 cover_hidden: true
 editPost: 
