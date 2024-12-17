@@ -1,7 +1,7 @@
 ---
 author: LCS.Dev
 creation date: 2024.12.16
-title: My first blog post!
+title: "Why this blog and how I manage it"
 description: Introduction article
 TocOpen: true
 draft: false

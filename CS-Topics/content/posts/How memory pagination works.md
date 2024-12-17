@@ -1,7 +1,7 @@
 ---
 author: LCS.Dev
-date: 
-title: 
+date: "2024-12-17"
+title: "How memory pagination works"
 description: Insert description here
 draft: false
 showToc: true
