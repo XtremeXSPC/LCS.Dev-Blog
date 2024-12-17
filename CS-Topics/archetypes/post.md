@@ -1,20 +1,16 @@
 ---
-title: '{{ replace .File.ContentBaseName "-" " " | title }}'
-date: '{{ .Date }}'
-# weight: 1
-# aliases: ["/first"]
-author: "LCS.Dev"
-# author: ["Me", "You"] # multiple authors
+author: LCS.Dev
+date:
+title:
+description: A brief introduction to memory pagination abstraction.
+draft: false
 showToc: true
 TocOpen: false
-draft: false
+UseHugoToc: true
 hidemeta: false
 comments: false
-description: "Describe briefly the article:"
-# To disable highlightjs
-disableHLJS: true 
-disableShare: false
 disableHLJS: false
+disableShare: false
 hideSummary: false
 searchHidden: true
 ShowReadingTime: true
@@ -22,17 +18,16 @@ ShowBreadCrumbs: true
 ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
-UseHugoToc: true
-tags: [""]
-categories: [""]
-cover:
-    image: "" # image path/url
-    alt: "" # alt text
-    caption: "" # display caption under cover
-    relative: false # when using page bundles set this to true
-    hidden: true # only hide on current single page
-editPost:
-    URL: "https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+tags:
+categories:
+cover: 
+cover_image: 
+cover_alt: 
+cover_caption: 
+cover_relative: false
+cover_hidden: true
+editPost: 
+editPost_URL: https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/
+editPost_Text: Suggest Changes
+editPost_appendFilePath: true
 ---

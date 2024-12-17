@@ -2,43 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lcs-developer.it/categories/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/tags/coding/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/posts/how-memory-pagination-works/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://lcs-developer.it/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/categories/operating-systems/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/tags/operating-systems/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lcs-developer.it/posts/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/tags/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/tags/tech/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/tags/virtual-memory/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://lcs-developer.it/posts/why-this-blog-and-how-i-manage-it/</loc>
-    <lastmod>2024-12-17T00:00:00+00:00</lastmod>
+    <lastmod>2024-12-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://lcs-developer.it/about/</loc>
   </url><url>
     <loc>https://lcs-developer.it/archives/</loc>
   </url><url>
+    <loc>https://lcs-developer.it/categories/</loc>
+  </url><url>
     <loc>https://lcs-developer.it/search/</loc>
+  </url><url>
+    <loc>https://lcs-developer.it/tags/</loc>
   </url>
 </urlset>

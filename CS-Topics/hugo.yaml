@@ -1,7 +1,7 @@
 # Hugo configuration file
 baseURL: "https://lcs-developer.it/"
 languageCode: en-us
-title: LCS.Dev - CS Topics
+title: LCS.Developer
 # paginate: 5
 theme: [PaperMod]
 
@@ -48,9 +48,8 @@ params:
   env: production 
   title: LCS.Dev - CS Topics
   description: "Journey of a Computer Science Student"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: LCS.Dev
-  # author: ["Me", "You"] # multiple authors
+  keywords: [Blog, Portfolio, Computer Science, Programming, Technology]
+  author: ["LCS.Dev"]
   images: ["/images/LCS.Dev-Logo.jpg"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
@@ -61,7 +60,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
@@ -72,6 +71,9 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+
+ # customCSS:
+ #   - css/extended/custom.css
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -92,17 +94,12 @@ params:
 
  # Home-info mode
   homeInfoParams:
-    Title: "Hi there 👋"
+    Title: "Welcome to LCS.Dev - CS Topics 👨‍💻"
     Content: |
       Hi! I'm **LCS.Dev**, a Computer Science student passionate about programming, 
-      technology, and free software. I write about:
-
-      - **Computer Science**
-      - **Programming**
-      - **Technology**
-
+      technology, and free software. I write about: **Computer Science**, **Programming**, **Technology** and **Math**.
+      
       My main focus is on **concurrent systems**, a topic I find both challenging and fascinating.  
-
       I believe in learning by sharing, and this blog is where I document my journey, explore new ideas,
       and connect with like-minded enthusiasts.  
 
