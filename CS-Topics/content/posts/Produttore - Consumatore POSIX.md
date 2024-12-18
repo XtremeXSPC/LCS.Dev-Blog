@@ -19,18 +19,18 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 tags:
-- Operating-Systems
-- Virtual-Memory
-- Coding
+  - Operating-Systems
+  - Virtual-Memory
+  - Coding
 categories:
-- Operating Systems
-cover:
-  image:
-  alt:
-  caption:
+  - Operating Systems
+cover: 
+  image: 
+  alt: 
+  caption: 
   relative: false
   hidden: true
-editPost:
+editPost: 
   URL: https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/
   Text: Suggest Changes
   appendFilePath: true

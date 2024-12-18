@@ -35,6 +35,26 @@ usage() {
 }
 
 # ======================================================= #
+# Project variables
+
+blog_dir="${BLOG_DIR:-$HOME/04_LCS.Blog/CS-Topics}"
+sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
+blog_images="${BLOG_IMAGES:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/images}"
+destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
+images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/images.py}"
+hash_file=".file_hashes"
+
+# Generate hashes for files in the destination directory and update frontmatter
+hash_file="${HASH_FILE_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/.file_hashes}"
+hash_generator_script="${HASH_GENERATOR_SCRIPT:-$HOME/04_LCS.Blog/Automatic-Updates/generate_hashes.py}"
+update_post_frontmatter="${UPDATE_POST_FRONTMATTER:-$HOME/04_LCS.Blog/Automatic-Updates/update_frontmatter.py}"
+
+# GitHub repository variables
+
+repo_path="${REPO_PATH:-/Users/lcs-dev/04_LCS.Blog}"
+myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
+
+# ======================================================= #
 # Logging
 
 log() {
@@ -138,6 +158,23 @@ generate_file_hashes() {
 }
 
 # ======================================================= #
+# Load hashes from the hash_file
+
+typeset -A file_hashes
+
+if [[ -f "$hash_file" ]]; then
+    while IFS=$'\t' read -r file hash; do
+        file_hashes["$file"]=$hash
+    done < "$hash_file"
+fi
+
+# Add log to check the loading of hashes
+log "Loaded file hashes:"
+for key in ${(k)file_hashes}; do
+    log "$key: ${file_hashes[$key]}"
+done
+
+# ======================================================= #
 # Main logic for updating frontmatter (example placeholder)
 
 update_frontmatter() {
@@ -146,7 +183,8 @@ update_frontmatter() {
     if [ ! -f "$update_post_frontmatter" ]; then
         error_exit "Update frontmatter script not found at $update_post_frontmatter"
     fi
-    python3 "$update_post_frontmatter" "$destinationPath" || error_exit "Failed to update frontmatter."
+    # Send the hash file path as an argument
+    python3 "$update_post_frontmatter" "$destinationPath" "$hash_file" || error_exit "Failed to update frontmatter."
     log "Frontmatter update completed."
 }
 
@@ -229,42 +267,6 @@ deploy_to_hostinger() {
 
     log "Deployment to Hostinger completed successfully."
 }
-
-# ======================================================= #
-# Project variables
-
-blog_dir="${BLOG_DIR:-$HOME/04_LCS.Blog/CS-Topics}"
-sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
-blog_images="${BLOG_IMAGES:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/images}"
-destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
-images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/images.py}"
-hash_file=".file_hashes"
-
-# Generate hashes for files in the destination directory and update frontmatter
-hash_generator_script="${HASH_GENERATOR_SCRIPT:-$HOME/04_LCS.Blog/Automatic-Updates/generate_hashes.py}"
-update_post_frontmatter="${UPDATE_POST_FRONTMATTER:-$HOME/04_LCS.Blog/Automatic-Updates/update_frontmatter.py}"
-
-# GitHub repository variables
-
-repo_path="${REPO_PATH:-/Users/lcs-dev/04_LCS.Blog}"
-myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
-
-# ======================================================= #
-# Load hashes from the hash_file
-
-typeset -A file_hashes
-
-if [[ -f "$hash_file" ]]; then
-    while IFS=$'\t' read -r file hash; do
-        file_hashes["$file"]=$hash
-    done < "$hash_file"
-fi
-
-# Aggiungi log per verificare il caricamento degli hash
-log "Loaded file hashes:"
-for key in ${(k)file_hashes}; do
-    log "$key: ${file_hashes[$key]}"
-done
 
 # ======================================================= #
 # Parse arguments and call functions

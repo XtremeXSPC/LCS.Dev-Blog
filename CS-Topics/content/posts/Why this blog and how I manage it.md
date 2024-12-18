@@ -19,16 +19,14 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 tags:
-  - Tech
-categories:
-  - 
-cover: 
-  image: 
-  alt: 
-  caption: 
+- Tech
+cover:
+  image:
+  alt:
+  caption:
   relative: false
   hidden: true
-editPost: 
+editPost:
   URL: https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/
   Text: Suggest Changes
   appendFilePath: true
