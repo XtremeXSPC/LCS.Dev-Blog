@@ -2,30 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Virtual-Memory on LCS.Developer</title>
-    <link>http://localhost:1313/tags/virtual-memory/</link>
+    <link>https://lcs-developer.it/tags/virtual-memory/</link>
     <description>Recent content in Virtual-Memory on LCS.Developer</description>
     <image>
       <title>LCS.Developer</title>
-      <url>http://localhost:1313/images/LCS.Dev-Logo.jpg</url>
-      <link>http://localhost:1313/images/LCS.Dev-Logo.jpg</link>
+      <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
+      <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
     </image>
     <generator>Hugo -- 0.140.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Dec 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/virtual-memory/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lcs-developer.it/tags/virtual-memory/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How memory pagination works</title>
-      <link>http://localhost:1313/posts/how-memory-pagination-works/</link>
-      <pubDate>Wed, 18 Dec 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/how-memory-pagination-works/</guid>
-      <description>A brief introduction to memory pagination abstraction.</description>
+      <title></title>
+      <link>https://lcs-developer.it/posts/how-memory-pagination-works/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://lcs-developer.it/posts/how-memory-pagination-works/</guid>
+      <description>A brief introduction to virtual memory abstraction.</description>
     </item>
     <item>
       <title></title>
-      <link>http://localhost:1313/posts/produttore---consumatore-posix/</link>
+      <link>https://lcs-developer.it/posts/produttore---consumatore-posix/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/produttore---consumatore-posix/</guid>
-      <description>Un esempio del problema &amp;#34;produttore / consumatore&amp;#34;</description>
+      <guid>https://lcs-developer.it/posts/produttore---consumatore-posix/</guid>
+      <description>A brief description of who I am and how I run my blog.</description>
     </item>
   </channel>
 </rss>
