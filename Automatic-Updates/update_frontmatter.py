@@ -9,17 +9,17 @@ from ruamel.yaml.scalarstring import DoubleQuotedScalarString
 from io import StringIO
 
 # ================================ #
-# Configurazione Iniziale
+# Initial Configuration
 
-# Assicurati che HASH_FILE si trovi nella stessa directory dello script
+# Ensure HASH_FILE is in the same directory as the script
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 HASH_FILE = os.path.join(SCRIPT_DIR, ".file_hashes")
 
 # ================================ #
-# Funzioni Utili
+# Utility Functions
 
 def calculate_hash(file_path):
-    """Calcola l'hash SHA256 di un file."""
+    # Calculate SHA256 hash of a file
     sha256 = hashlib.sha256()
     try:
         with open(file_path, "rb") as f:
@@ -27,19 +27,19 @@ def calculate_hash(file_path):
                 sha256.update(block)
         return sha256.hexdigest()
     except Exception as e:
-        print(f"[ERROR] Calcolo hash fallito per {file_path}: {e}")
+        print(f"[ERROR] Hash calculation failed for {file_path}: {e}")
         return None
 
 def load_hashes():
-    """Carica gli hash esistenti dal file degli hash."""
+    # Load existing hashes from hash file
     hashes = {}
     if os.path.exists(HASH_FILE):
         with open(HASH_FILE, "r", encoding="utf-8") as f:
             for line in f:
                 parts = line.strip().split("\t")
                 if len(parts) != 2:
-                    print(f"[WARNING] Linea malformata nello hash file: {line.strip()}")
-                    continue  # Salta le linee malformate
+                    print(f"[WARNING] Malformed line in hash file: {line.strip()}")
+                    continue  # Skip malformed lines
                 file_path, file_hash = parts
                 abs_path = os.path.abspath(file_path)
                 hashes[abs_path] = file_hash
@@ -48,32 +48,32 @@ def load_hashes():
     return hashes
 
 def save_hashes(hashes):
-    """Salva gli hash aggiornati nel file degli hash."""
+    # Save updated hashes to the hash file
     try:
         with open(HASH_FILE, "w", encoding="utf-8") as f:
             for file_path, file_hash in hashes.items():
                 f.write(f"{file_path}\t{file_hash}\n")
     except Exception as e:
-        print(f"[ERROR] Salvataggio degli hash fallito: {e}")
+        print(f"[ERROR] Failed to save hashes: {e}")
 
 def update_frontmatter(file_path):
-    """Aggiorna il frontmatter di un file Markdown."""
+    # Update the frontmatter of a Markdown file
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
-        print(f"[ERROR] Lettura del file fallita per {file_path}: {e}")
-        return False  # Nessuna modifica
+        print(f"[ERROR] Failed to read file {file_path}: {e}")
+        return False
 
     if not content.startswith("---"):
-        print(f"[INFO] Saltato {file_path}: No frontmatter trovato.")
-        return False  # Nessuna modifica
+        print(f"[INFO] Skipped {file_path}: No frontmatter found.")
+        return False
 
-    # Dividi il contenuto in frontmatter e corpo
+    # Split content into frontmatter and body
     parts = content.split("---", 2)
     if len(parts) < 3:
-        print(f"[INFO] Saltato {file_path}: Delimitatore del frontmatter non trovato correttamente.")
-        return False  # Nessuna modifica
+        print(f"[INFO] Skipped {file_path}: Frontmatter delimiter not found correctly.")
+        return False
 
     frontmatter_text = parts[1]
     body = parts[2]
@@ -83,59 +83,83 @@ def update_frontmatter(file_path):
     try:
         data = yaml.load(frontmatter_text)
     except Exception as e:
-        print(f"[ERROR] Parsing YAML fallito per {file_path}: {e}")
-        return False  # Nessuna modifica
+        print(f"[ERROR] YAML parsing failed for {file_path}: {e}")
+        return False
 
     if data is None:
         data = {}
 
     modified = False
 
-    # Verifica e aggiorna il campo 'title'
+    # Check and update 'title' field
     if "title" not in data or not data["title"]:
         default_title = os.path.basename(file_path).replace(".md", "").replace("_", " ").title()
         data["title"] = DoubleQuotedScalarString(default_title)
         modified = True
-        print(f"[INFO] Aggiunto 'title' a {file_path}: {default_title}")
+        print(f"[INFO] Added 'title' to {file_path}: {default_title}")
 
-    # Verifica e aggiorna il campo 'date'
+    # Check and update 'date' field
     if "date" not in data or not data["date"]:
         current_date = datetime.now().isoformat()
         data["date"] = DoubleQuotedScalarString(current_date)
         modified = True
-        print(f"[INFO] Aggiunto 'date' a {file_path}: {current_date}")
+        print(f"[INFO] Added 'date' to {file_path}: {current_date}")
 
     if not modified:
-        # Nessuna modifica necessaria
+        # No modifications needed
         return False
 
-    # Dump del frontmatter aggiornato
+    # Dump updated frontmatter
     try:
         stream = StringIO()
         yaml.dump(data, stream)
         updated_frontmatter = stream.getvalue().rstrip()
     except Exception as e:
-        print(f"[ERROR] Dumping YAML fallito per {file_path}: {e}")
+        print(f"[ERROR] YAML dumping failed for {file_path}: {e}")
         return False
 
-    # Ricostruisci il contenuto del file
+    # Rebuild file content
     if body.startswith('\n'):
         updated_content = f"---\n{updated_frontmatter}\n---{body}"
     else:
         updated_content = f"---\n{updated_frontmatter}\n---\n{body}"
 
-    # Scrivi il contenuto aggiornato nel file
+    # Write updated content to file
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(updated_content)
     except Exception as e:
-        print(f"[ERROR] Scrittura del file fallita per {file_path}: {e}")
+        print(f"[ERROR] Failed to write file {file_path}: {e}")
         return False
 
-    return True  # Modifica effettuata
+    return True
 
+def process_file(file_path, hashes, updated_hashes, modified_files):
+    current_hash = calculate_hash(file_path)
+    if current_hash is None:
+        return  # Skip files with hash errors
+
+    previous_hash = hashes.get(file_path)
+
+    if previous_hash != current_hash:
+        print(f"[INFO] Processing: {file_path}")
+        modified = update_frontmatter(file_path)
+        if modified:
+            modified_files.append(file_path)
+            # Recalculate hash after modification
+            new_hash = calculate_hash(file_path)
+            if new_hash:
+                updated_hashes[file_path] = new_hash
+            print(f"[INFO] Frontmatter updated for: {file_path}")
+        else:
+            print(f"[INFO] No modifications needed for: {file_path}")
+            # Update current hash
+            updated_hashes[file_path] = current_hash
+    else:
+        # No changes detected
+        updated_hashes[file_path] = current_hash
 def main(directory):
-    """Funzione principale che processa i file nella directory specificata."""
+    # Primary function that processes files in the specified directory.
     directory = os.path.abspath(directory)
     print(f"[INFO] Processando la directory: {directory}")
 
@@ -149,7 +173,7 @@ def main(directory):
                 file_path = os.path.abspath(os.path.join(root, file))
                 current_hash = calculate_hash(file_path)
                 if current_hash is None:
-                    continue  # Salta i file con errori di hash
+                    continue  # Jump to the next file if hash calculation fails
 
                 previous_hash = hashes.get(file_path)
 
@@ -158,17 +182,18 @@ def main(directory):
                     modified = update_frontmatter(file_path)
                     if modified:
                         modified_files.append(file_path)
-                        # Ricalcola l'hash dopo la modifica
+                        # Recalculate hash after modification
                         new_hash = calculate_hash(file_path)
                         if new_hash:
                             updated_hashes[file_path] = new_hash
                         print(f"[INFO] Frontmatter aggiornato per: {file_path}")
                     else:
                         print(f"[INFO] Nessuna modifica necessaria per: {file_path}")
-                        # Aggiorna l'hash corrente
+                        # Update current hash
                         updated_hashes[file_path] = current_hash
                 else:
-                    # Nessuna modifica rilevata
+
+                    # No changes detected
                     updated_hashes[file_path] = current_hash
 
     save_hashes(updated_hashes)

@@ -1,8 +1,8 @@
 ---
 author: LCS.Dev
-date: "2024-12-19T00:06:08.523433"
+date: "2024-12-19T00:36:58.458443"
 title: "Produttore - Consumatore Posix"
-description: A brief description of who I am and how I run my blog.
+description: A simple solution to avoid race conditions.
 draft: false
 showToc: true
 TocOpen: true

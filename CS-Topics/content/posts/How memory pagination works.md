@@ -1,6 +1,6 @@
 ---
 author: LCS.Dev
-date: "2024-12-19T00:06:08.529213"
+date: "2024-12-19T00:36:58.464578"
 title: "How Memory Pagination Works"
 description: A brief introduction to virtual memory abstraction.
 draft: false
