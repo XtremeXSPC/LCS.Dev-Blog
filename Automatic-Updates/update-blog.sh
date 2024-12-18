@@ -1,6 +1,17 @@
 #!/usr/bin/env zsh
 
+# ======================================================= #
+# Logging Setup
+# Configurare il logging all'inizio per catturare tutti i log, compresi quelli generati dalle funzioni chiamate tramite argomenti.
+
+logFile="./script.log"
+exec > >(tee -a "$logFile") 2>&1
+
+# ======================================================= #
+# Exit immediately if a command exits with a non-zero status,
+# Treat unset variables as an error, and prevent errors in a pipeline from being masked.
 set -euo pipefail
+
 trap 'error_exit "An unexpected error occurred. Check the log for details."' ERR
 
 # ======================================================= #
@@ -65,15 +76,18 @@ check_dir() {
 initialize_git() {
     log "Changing to repository directory: $repo_path"
     cd "$repo_path" || error_exit "Failed to change directory to $repo_path"
+
     if [ ! -d ".git" ]; then
         log "Initializing Git repository..."
-        git init
-        git remote add origin "$myrepo"
+        git init || error_exit "Git initialization failed."
+        git remote add origin "$myrepo" || error_exit "Failed to add remote origin."
     else
         log "Git repository already initialized."
         if ! git remote get-url origin &>/dev/null; then
             log "Adding remote origin..."
-            git remote add origin "$myrepo"
+            git remote add origin "$myrepo" || error_exit "Failed to add remote origin."
+        else
+            log "Remote origin already exists."
         fi
     fi
 }
@@ -85,7 +99,7 @@ sync_posts() {
     log "Syncing posts from source to destination..."
     check_dir "$sourcePath" "Source"
     check_dir "$destinationPath" "Destination"
-    rsync -av --delete "${sourcePath}/" "${destinationPath}/"
+    rsync -av --delete "${sourcePath}/" "${destinationPath}/" || error_exit "rsync failed."
 }
 
 # ======================================================= #
@@ -119,28 +133,8 @@ generate_file_hashes() {
         error_exit "Hash generator script not found at $hash_generator_script"
     fi
 
-    # Trova i file Markdown
-    log "Finding Markdown files in $destinationPath"
-    local files_to_hash
-    files_to_hash=$(find "$destinationPath" -type f -name "*.md")
-
-    if [ -z "$files_to_hash" ]; then
-        error_exit "No Markdown files found in the destination directory."
-    fi
-
-    # Inizializza il file degli hash
-    log "Writing hashes to $hash_file"
-    > "$hash_file" || error_exit "Cannot write to $hash_file"
-
-    for file in $files_to_hash; do
-        log "Processing file: $file"
-        python3 "$hash_generator_script" "$file" >> "$hash_file" 2>>error.log
-        if [ $? -ne 0 ]; then
-            error_exit "Failed to process $file. Check error.log for details."
-        fi
-    done
-
-    log "File hashes successfully generated and saved to $hash_file"
+    python3 "$hash_generator_script" "$destinationPath" || error_exit "Failed to generate file hashes."
+    log "File hashes successfully updated."
 }
 
 # ======================================================= #
@@ -148,38 +142,11 @@ generate_file_hashes() {
 
 update_frontmatter() {
     log "Updating frontmatter for files in $destinationPath"
-
-    # Load hashes into an associative array
-    typeset -A file_hashes
-    if [[ -f "$hash_file" ]]; then
-        while IFS=$'\t' read -r file hash; do
-            file_hashes["$file"]=$hash
-        done < "$hash_file"
+    check_command python3
+    if [ ! -f "$update_post_frontmatter" ]; then
+        error_exit "Update frontmatter script not found at $update_post_frontmatter"
     fi
-
-    # Process each Markdown file in the destination directory
-    local files_to_process
-    files_to_process=$(find "$destinationPath" -type f -name "*.md")
-    for file in $files_to_process; do
-        local current_hash
-        current_hash=$(python3 "$hash_generator_script" "$file" | awk '{print $2}')
-
-        if [[ "${file_hashes[$file]}" != "$current_hash" ]]; then
-            log "File $file has changed. Updating frontmatter..."
-            # Here you would call a Python or Bash script to update the frontmatter
-            # e.g., python3 update_frontmatter.py "$file"
-            file_hashes["$file"]=$current_hash
-        else
-            log "File $file is up-to-date. Skipping."
-        fi
-    done
-
-    # Write updated hashes back to the hash file
-    > "$hash_file"
-    for file in ${(k)file_hashes}; do
-        echo -e "$file\t${file_hashes[$file]}" >> "$hash_file"
-    done
-
+    python3 "$update_post_frontmatter" "$destinationPath" || error_exit "Failed to update frontmatter."
     log "Frontmatter update completed."
 }
 
@@ -189,9 +156,10 @@ update_frontmatter() {
 process_markdown() {
     log "Processing Markdown files with images.py..."
     if [ ! -f "$images_script" ]; then
-        error_exit "Python script images.py not found."
+        error_exit "Python script images.py not found at $images_script"
     fi
-    python3 "$images_script"
+    python3 "$images_script" || error_exit "Failed to process Markdown files with images.py."
+    log "Markdown processing completed."
 }
 
 # ======================================================= #
@@ -205,6 +173,7 @@ build_hugo_site() {
     if [ ! -d "$blog_dir/public" ]; then
         error_exit "Hugo build completed, but 'public' directory was not created."
     fi
+    log "Hugo site built successfully."
 }
 
 # ======================================================= #
@@ -216,10 +185,10 @@ stage_and_commit_changes() {
     if git diff --quiet && git diff --cached --quiet; then
         log "No changes to stage or commit."
     else
-        git add .
+        git add . || error_exit "Failed to stage changes."
         local commit_message="New Blog Post on $(date +'%Y-%m-%d %H:%M:%S')"
         log "Committing changes with message: $commit_message"
-        git commit -m "$commit_message"
+        git commit -m "$commit_message" || error_exit "Git commit failed."
     fi
 }
 
@@ -229,12 +198,13 @@ stage_and_commit_changes() {
 push_to_main() {
     log "Pushing changes to the main branch on GitHub..."
     if git rev-parse --verify main &>/dev/null; then
-        git checkout main
+        git checkout main || error_exit "Failed to checkout main branch."
     else
         error_exit "Main branch does not exist locally."
     fi
 
-    git push origin main
+    git push origin main || error_exit "Failed to push to main branch."
+    log "Changes pushed to main branch successfully."
 }
 
 # ======================================================= #
@@ -242,13 +212,22 @@ push_to_main() {
 
 deploy_to_hostinger() {
     log "Deploying the public folder to the hostinger branch..."
+    
+    # Check if 'hostinger-deploy' branch exists and delete it
     if git rev-parse --verify hostinger-deploy &>/dev/null; then
-        git branch -D hostinger-deploy
+        git branch -D hostinger-deploy || error_exit "Failed to delete existing hostinger-deploy branch."
     fi
 
-    git subtree split --prefix "CS-Topics/public" -b hostinger-deploy
-    git push origin hostinger-deploy:hostinger --force
-    git branch -D hostinger-deploy
+    # Create a new 'hostinger-deploy' branch from 'public' directory
+    git subtree split --prefix "CS-Topics/public" -b hostinger-deploy || error_exit "git subtree split failed."
+
+    # Push the 'hostinger-deploy' branch to 'hostinger' branch on origin
+    git push origin hostinger-deploy:hostinger --force || error_exit "Failed to push to hostinger branch."
+
+    # Delete the temporary 'hostinger-deploy' branch
+    git branch -D hostinger-deploy || error_exit "Failed to delete hostinger-deploy branch after deployment."
+
+    log "Deployment to Hostinger completed successfully."
 }
 
 # ======================================================= #
@@ -261,15 +240,14 @@ destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
 images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/images.py}"
 hash_file=".file_hashes"
 
-# Percorso dello script Python per la generazione degli hash
+# Generate hashes for files in the destination directory and update frontmatter
 hash_generator_script="${HASH_GENERATOR_SCRIPT:-$HOME/04_LCS.Blog/Automatic-Updates/generate_hashes.py}"
+update_post_frontmatter="${UPDATE_POST_FRONTMATTER:-$HOME/04_LCS.Blog/Automatic-Updates/update_frontmatter.py}"
 
-# ======================================================= #
 # GitHub repository variables
 
 repo_path="${REPO_PATH:-/Users/lcs-dev/04_LCS.Blog}"
 myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
-logFile="./script.log"
 
 # ======================================================= #
 # Load hashes from the hash_file
@@ -310,20 +288,21 @@ fi
 # ======================================================= #
 # Execute main logic if no arguments are provided
 
-# Logging
-exec > >(tee -a "$logFile") 2>&1
-
 log "Starting script..."
 
+# Check required commands
 for cmd in git rsync python3 hugo; do
     check_command "$cmd"
 done
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Ensure script is running from the correct directory
+SCRIPT_DIR="$(cd "$(dirname "${(%):-%N}")" && pwd)"  # Zsh-specific to get the script directory
 cd "$SCRIPT_DIR" || error_exit "Failed to change to script directory"
 
+# Execute all functions in order
 initialize_git
 sync_posts
+generate_file_hashes
 update_frontmatter
 process_markdown
 build_hugo_site
