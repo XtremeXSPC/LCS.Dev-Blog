@@ -12,7 +12,7 @@ from io import StringIO
 # Funzioni Utili
 
 def calculate_hash(file_path):
-    """Calcola l'hash SHA256 di un file."""
+    # Calculate the SHA256 hash of a file
     sha256 = hashlib.sha256()
     try:
         with open(file_path, "rb") as f:
@@ -24,7 +24,7 @@ def calculate_hash(file_path):
         return None
 
 def load_hashes(hash_file):
-    """Carica gli hash esistenti dal file degli hash."""
+    # Load existing hashes from a file
     hashes = {}
     if os.path.exists(hash_file):
         with open(hash_file, "r", encoding="utf-8") as f:
@@ -32,7 +32,7 @@ def load_hashes(hash_file):
                 parts = line.strip().split("\t")
                 if len(parts) != 2:
                     print(f"[WARNING] Linea malformata nello hash file: {line.strip()}")
-                    continue  # Salta le linee malformate
+                    continue  # Jump malformed lines
                 file_path, file_hash = parts
                 abs_path = os.path.abspath(file_path)
                 hashes[abs_path] = file_hash
@@ -41,7 +41,7 @@ def load_hashes(hash_file):
     return hashes
 
 def save_hashes(hashes, hash_file):
-    """Salva gli hash aggiornati nel file degli hash."""
+    # Save updated hashes to a file for future comparison
     try:
         with open(hash_file, "w", encoding="utf-8") as f:
             for file_path, file_hash in hashes.items():
@@ -50,23 +50,23 @@ def save_hashes(hashes, hash_file):
         print(f"[ERROR] Salvataggio degli hash fallito: {e}")
 
 def update_frontmatter(file_path):
-    """Aggiorna il frontmatter di un file Markdown."""
+    # Update the frontmatter of a Markdown file if necessary
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
     except Exception as e:
         print(f"[ERROR] Lettura del file fallita per {file_path}: {e}")
-        return False  # Nessuna modifica
+        return False
 
     if not content.startswith("---"):
         print(f"[INFO] Saltato {file_path}: No frontmatter trovato.")
-        return False  # Nessuna modifica
+        return False
 
     # Dividi il contenuto in frontmatter e corpo
     parts = content.split("---", 2)
     if len(parts) < 3:
         print(f"[INFO] Saltato {file_path}: Delimitatore del frontmatter non trovato correttamente.")
-        return False  # Nessuna modifica
+        return False
 
     frontmatter_text = parts[1]
     body = parts[2]
@@ -77,32 +77,32 @@ def update_frontmatter(file_path):
         data = yaml.load(frontmatter_text)
     except Exception as e:
         print(f"[ERROR] Parsing YAML fallito per {file_path}: {e}")
-        return False  # Nessuna modifica
+        return False
 
     if data is None:
         data = {}
 
     modified = False
 
-    # Verifica e aggiorna il campo 'title'
+    # Check and update the 'title' field
     if "title" not in data or not data["title"]:
         default_title = os.path.basename(file_path).replace(".md", "").replace("_", " ").title()
         data["title"] = DoubleQuotedScalarString(default_title)
         modified = True
         print(f"[INFO] Aggiunto 'title' a {file_path}: {default_title}")
 
-    # Verifica e aggiorna il campo 'date'
+    # Verify and update the 'date' field
     if "date" not in data or not data["date"]:
         current_date = datetime.now().isoformat()
         data["date"] = DoubleQuotedScalarString(current_date)
         modified = True
         print(f"[INFO] Aggiunto 'date' a {file_path}: {current_date}")
 
-    # **Gestione delle categorie vuote o malformate**
+    # ** Manage empty or malformed 'categories' field **
     if "categories" in data:
         original_categories = data["categories"]
         if isinstance(original_categories, list):
-            # Rimuovi categorie vuote
+            # Remove empty categories
             new_categories = [cat for cat in original_categories if isinstance(cat, str) and cat.strip()]
             if not new_categories:
                 del data["categories"]
@@ -114,27 +114,27 @@ def update_frontmatter(file_path):
                     modified = True
                     print(f"[INFO] Aggiornate categorie per {file_path}.")
         elif original_categories is None:
-            # 'categories' è None, rimuovilo
+            # 'categories' is None, remove it
             del data["categories"]
             modified = True
             print(f"[INFO] Rimosso campo 'categories' impostato a None da {file_path}.")
         else:
-            # 'categories' non è una lista, rimuovilo
+            # 'categories' is not a list, remove it
             del data["categories"]
             modified = True
             print(f"[INFO] Rimosso campo 'categories' non valido da {file_path}.")
 
-    # **Aggiungi una categoria predefinita se manca**
+    # ** If 'categories' is still not present or empty, add a default category **
     if "categories" not in data:
         data["categories"] = DoubleQuotedScalarString("Uncategorized")
         modified = True
         print(f"[INFO] Aggiunta categoria predefinita a {file_path}: Uncategorized")
 
     if not modified:
-        # Nessuna modifica necessaria
+        # No modification needed
         return False
 
-    # Dump del frontmatter aggiornato
+    # Dump the updated frontmatter
     try:
         stream = StringIO()
         yaml.dump(data, stream)
@@ -143,13 +143,13 @@ def update_frontmatter(file_path):
         print(f"[ERROR] Dumping YAML fallito per {file_path}: {e}")
         return False
 
-    # Ricostruisci il contenuto del file
+    # Rebuild the content with updated frontmatter
     if body.startswith('\n'):
         updated_content = f"---\n{updated_frontmatter}\n---{body}"
     else:
         updated_content = f"---\n{updated_frontmatter}\n---\n{body}"
 
-    # Scrivi il contenuto aggiornato nel file
+    # Write the updated content to the file
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(updated_content)
@@ -157,10 +157,10 @@ def update_frontmatter(file_path):
         print(f"[ERROR] Scrittura del file fallita per {file_path}: {e}")
         return False
 
-    return True  # Modifica effettuata
+    return True  # Modifications were made
 
 def main(directory, hash_file):
-    """Funzione principale che processa i file nella directory specificata."""
+    # Primary function to process files in the specified directory
     directory = os.path.abspath(directory)
     print(f"[INFO] Processando la directory: {directory}")
 
@@ -174,7 +174,8 @@ def main(directory, hash_file):
                 file_path = os.path.abspath(os.path.join(root, file))
                 current_hash = calculate_hash(file_path)
                 if current_hash is None:
-                    continue  # Salta i file con errori di hash
+                    # Skip files with hash errors
+                    continue
 
                 previous_hash = hashes.get(file_path)
 
@@ -183,17 +184,17 @@ def main(directory, hash_file):
                     modified = update_frontmatter(file_path)
                     if modified:
                         modified_files.append(file_path)
-                        # Ricalcola l'hash dopo la modifica
+                        # Re-calculate the hash after modification
                         new_hash = calculate_hash(file_path)
                         if new_hash:
                             updated_hashes[file_path] = new_hash
                         print(f"[INFO] Frontmatter aggiornato per: {file_path}")
                     else:
                         print(f"[INFO] Nessuna modifica necessaria per: {file_path}")
-                        # Aggiorna l'hash corrente
+                        # Update the current hash
                         updated_hashes[file_path] = current_hash
                 else:
-                    # Nessuna modifica rilevata
+                    # No modification detected
                     updated_hashes[file_path] = current_hash
 
     save_hashes(updated_hashes, hash_file)
