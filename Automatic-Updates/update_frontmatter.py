@@ -98,7 +98,7 @@ def update_frontmatter(file_path):
         modified = True
         print(f"[INFO] Aggiunto 'date' a {file_path}: {current_date}")
 
-    # **Opzionale: Gestione delle categorie vuote o malformate**
+    # **Gestione delle categorie vuote o malformate**
     if "categories" in data:
         original_categories = data["categories"]
         if isinstance(original_categories, list):
@@ -113,11 +113,22 @@ def update_frontmatter(file_path):
                 if new_categories != original_categories:
                     modified = True
                     print(f"[INFO] Aggiornate categorie per {file_path}.")
+        elif original_categories is None:
+            # 'categories' è None, rimuovilo
+            del data["categories"]
+            modified = True
+            print(f"[INFO] Rimosso campo 'categories' impostato a None da {file_path}.")
         else:
             # 'categories' non è una lista, rimuovilo
             del data["categories"]
             modified = True
             print(f"[INFO] Rimosso campo 'categories' non valido da {file_path}.")
+
+    # **Aggiungi una categoria predefinita se manca**
+    if "categories" not in data:
+        data["categories"] = DoubleQuotedScalarString("Uncategorized")
+        modified = True
+        print(f"[INFO] Aggiunta categoria predefinita a {file_path}: Uncategorized")
 
     if not modified:
         # Nessuna modifica necessaria

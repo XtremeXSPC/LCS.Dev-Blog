@@ -11,8 +11,22 @@
     </image>
     <generator>Hugo -- 0.140.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Dec 2024 20:30:30 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2024 00:36:58 +0000</lastBuildDate>
     <atom:link href="https://lcs-developer.it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How Memory Pagination Works</title>
+      <link>https://lcs-developer.it/posts/how-memory-pagination-works/</link>
+      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
+      <guid>https://lcs-developer.it/posts/how-memory-pagination-works/</guid>
+      <description>A brief introduction to virtual memory abstraction.</description>
+    </item>
+    <item>
+      <title>Produttore - Consumatore Posix</title>
+      <link>https://lcs-developer.it/posts/produttore---consumatore-posix/</link>
+      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
+      <guid>https://lcs-developer.it/posts/produttore---consumatore-posix/</guid>
+      <description>A simple solution to avoid race conditions.</description>
+    </item>
     <item>
       <title>Why this blog and how I manage it</title>
       <link>https://lcs-developer.it/posts/why-this-blog-and-how-i-manage-it/</link>
