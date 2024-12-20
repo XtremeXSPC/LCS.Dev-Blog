@@ -7,7 +7,7 @@ import hashlib
 HASH_FILE = ".file_hashes"
 
 def calculate_hash(file_path):
-    """Calcola l'hash SHA256 di un file."""
+    # Calculate the SHA256 hash of a file
     sha256 = hashlib.sha256()
     with open(file_path, "rb") as f:
         for block in iter(lambda: f.read(65536), b""):
@@ -15,7 +15,7 @@ def calculate_hash(file_path):
     return sha256.hexdigest()
 
 def load_existing_hashes(hash_file):
-    """Carica gli hash esistenti da un file."""
+    # Load existing hashes from a file
     if not os.path.exists(hash_file):
         return {}
     hashes = {}
@@ -26,13 +26,13 @@ def load_existing_hashes(hash_file):
     return hashes
 
 def save_hashes(hash_file, hashes):
-    """Salva gli hash aggiornati nel file."""
+    # Save updated hashes to a file for future comparison
     with open(hash_file, "w", encoding="utf-8") as f:
         for file_path, file_hash in hashes.items():
             f.write(f"{file_path}\t{file_hash}\n")
 
 def update_hashes(directory):
-    """Aggiorna gli hash per i file Markdown in una directory."""
+    # Update hashes for Markdown files in a directory
     existing_hashes = load_existing_hashes(HASH_FILE)
     current_hashes = {}
 
@@ -43,13 +43,13 @@ def update_hashes(directory):
                 current_hash = calculate_hash(file_path)
                 current_hashes[file_path] = current_hash
 
-    # Rimuovi gli hash di file non più presenti
+    # Remove hashes of files that are no longer present
     updated_hashes = {**existing_hashes, **current_hashes}
     for file_path in list(updated_hashes.keys()):
         if file_path not in current_hashes:
             del updated_hashes[file_path]
 
-    # Salva gli hash aggiornati
+    # Save updated hashes
     save_hashes(HASH_FILE, updated_hashes)
     return updated_hashes
 
