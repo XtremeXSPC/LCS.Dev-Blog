@@ -9,7 +9,7 @@ from ruamel.yaml.scalarstring import DoubleQuotedScalarString
 from io import StringIO
 
 # ================================ #
-# Funzioni Utili
+# Useful functions
 
 def calculate_hash(file_path):
     # Calculate the SHA256 hash of a file
