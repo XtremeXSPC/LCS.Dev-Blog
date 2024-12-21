@@ -77,4 +77,4 @@ hugo new site websitename
 cd websitename
 ```
 
-... more updates soon!
+... I'm writing the remaining part of this article.
