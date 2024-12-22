@@ -7,7 +7,13 @@ import hashlib
 HASH_FILE = ".file_hashes"
 
 def calculate_hash(file_path):
-    # Calculate the SHA256 hash of a file
+    """
+    Calculate the SHA-256 hash of a file.
+    Args:
+        file_path (str): The path to the file for which the hash is to be calculated.
+    Returns:
+        str: The SHA-256 hash of the file in hexadecimal format.
+    """
     sha256 = hashlib.sha256()
     with open(file_path, "rb") as f:
         for block in iter(lambda: f.read(65536), b""):
@@ -15,7 +21,17 @@ def calculate_hash(file_path):
     return sha256.hexdigest()
 
 def load_existing_hashes(hash_file):
-    # Load existing hashes from a file
+    """
+    Load existing file hashes from a given file.
+    This function reads a file containing file paths and their corresponding
+    hashes, separated by a tab character, and returns a dictionary where the
+    keys are file paths and the values are their respective hashes.
+    Args:
+        hash_file (str): The path to the file containing the hashes.
+    Returns:
+        dict: A dictionary with file paths as keys and their hashes as values.
+              If the file does not exist, an empty dictionary is returned.
+    """
     if not os.path.exists(hash_file):
         return {}
     hashes = {}
@@ -26,13 +42,28 @@ def load_existing_hashes(hash_file):
     return hashes
 
 def save_hashes(hash_file, hashes):
-    # Save updated hashes to a file for future comparison
+    """
+    Save file paths and their corresponding hashes to a file.
+    Args:
+        hash_file (str): The path to the file where the hashes will be saved.
+        hashes (dict): A dictionary where keys are file paths and values are their corresponding hashes.
+    """
     with open(hash_file, "w", encoding="utf-8") as f:
         for file_path, file_hash in hashes.items():
             f.write(f"{file_path}\t{file_hash}\n")
 
 def update_hashes(directory):
-    # Update hashes for Markdown files in a directory
+    """
+    Updates the hash values of markdown files in the specified directory.
+    This function walks through the given directory, calculates the hash values
+    of all markdown (.md) files, and updates the existing hash values stored in
+    a hash file. It also removes the hash values of files that are no longer present
+    in the directory.
+    Args:
+        directory (str): The path to the directory containing markdown files.
+    Returns:
+        dict: A dictionary containing the updated hash values of the markdown files.
+    """
     existing_hashes = load_existing_hashes(HASH_FILE)
     current_hashes = {}
 
