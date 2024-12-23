@@ -36,7 +36,7 @@ editPost:
   appendFilePath: true
 ---
 
-![Image Description](/images/virtual_memory_translation.png)
+![[virtual_memory_translation.png]]
 
 ## Memory Abstraction: Paging and Its Role in Modern Systems
 
