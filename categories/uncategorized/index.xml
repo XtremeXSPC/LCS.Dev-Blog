@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Uncategorized on LCS.Developer</title>
-    <link>https://lcs-developer.it/categories/uncategorized/</link>
+    <link>http://localhost:1313/categories/uncategorized/</link>
     <description>Recent content in Uncategorized on LCS.Developer</description>
     <image>
       <title>LCS.Developer</title>
-      <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
-      <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
+      <url>http://localhost:1313/images/LCS.Dev-Logo.jpg</url>
+      <link>http://localhost:1313/images/LCS.Dev-Logo.jpg</link>
     </image>
     <generator>Hugo -- 0.140.0</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 17 Dec 2024 20:30:30 +0000</lastBuildDate>
-    <atom:link href="https://lcs-developer.it/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why this blog and how I manage it</title>
-      <link>https://lcs-developer.it/posts/why-this-blog-and-how-i-manage-it/</link>
+      <link>http://localhost:1313/posts/why-this-blog-and-how-i-manage-it/</link>
       <pubDate>Tue, 17 Dec 2024 20:30:30 +0000</pubDate>
-      <guid>https://lcs-developer.it/posts/why-this-blog-and-how-i-manage-it/</guid>
+      <guid>http://localhost:1313/posts/why-this-blog-and-how-i-manage-it/</guid>
       <description>A brief description of who I am and how I run my blog.</description>
     </item>
   </channel>
