@@ -78,6 +78,3 @@ cd websitename
 ```
 
 ... I'm writing the remaining part of this article.
-
-
-Questa e' una prova.

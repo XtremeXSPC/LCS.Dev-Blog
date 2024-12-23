@@ -244,7 +244,7 @@ int main() {
 Con questa implementazione, il problema del produttore/consumatore viene risolto utilizzando i classici strumenti di sincronizzazione per evitare condizioni di gara, *starvation* o *deadlock*.
 
 ---
-### Spiegazione dettagliata delle istruzioni nel codice del produttore**
+### Spiegazione dettagliata delle istruzioni nel codice del produttore
 
 Vediamo passo per passo le istruzioni chiave nel codice del produttore, focalizzandoci sulla struttura `shared_data` e sul motivo per cui è definita in un certo modo.
 
