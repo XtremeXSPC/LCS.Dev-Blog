@@ -4,6 +4,7 @@ date: "2024-12-19T00:36:58.464578"
 title: "How Memory Pagination Works"
 description: A brief introduction to virtual memory abstraction.
 draft: false
+math: true
 showToc: true
 TocOpen: true
 UseHugoToc: true
@@ -36,7 +37,7 @@ editPost:
   appendFilePath: true
 ---
 
-![[virtual_memory_translation.png]]
+![Image Description](/images/virtual_memory_translation.png)
 
 ## Memory Abstraction: Paging and Its Role in Modern Systems
 

@@ -1,9 +1,10 @@
 ---
 author: LCS.Dev
-date: "2024-12-23T22:47:35.111058Z"
+date: "2024-12-23T23:22:08.669967Z"
 title: "Teorema Del Limite Centrale"
 description: Una breve spiegazione informale del TCL
 draft: false
+math: true
 showToc: true
 TocOpen: true
 UseHugoToc: true
@@ -34,7 +35,6 @@ editPost:
   Text: Suggest Changes
   appendFilePath: true
 ---
-
 
 Il **teorema del limite centrale (TLC)** è un risultato fondamentale nella teoria della probabilità e nella statistica. Esso afferma che, sotto condizioni generali, la somma (o media) di un grande numero di variabili aleatorie indipendenti e identicamente distribuite (i.i.d.) tende a seguire una distribuzione normale, indipendentemente dalla distribuzione originale delle variabili. Prova.
 

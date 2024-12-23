@@ -4,6 +4,7 @@ date: "2024-12-19T00:36:58.458443"
 title: "Produttore - Consumatore Posix"
 description: A simple solution to avoid race conditions.
 draft: false
+math: true
 showToc: true
 TocOpen: true
 UseHugoToc: true
