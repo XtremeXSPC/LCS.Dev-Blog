@@ -1,6 +1,6 @@
 ---
 author: LCS.Dev
-date: "2024-12-23T23:28:52.244791Z"
+date: "2024-12-24T23:27:08.316023Z"
 title: "Teorema Del Limite Centrale"
 description: Una breve spiegazione informale del TCL
 draft: false
@@ -42,7 +42,7 @@ Il **teorema del limite centrale (TLC)** è un risultato fondamentale nella teor
 
 ### Dichiarazione formale
 
-Siano $X_1, X_2, \dots, X_n$variabili aleatorie i.i.d. con:
+Siano $X_1, X_2, \dots, X_n$ variabili aleatorie i.i.d. con:
 
 - Media $\mu = \mathbb{E}[X_i]$,
 - Varianza $\sigma^2 = \text{Var}(X_i)$.
@@ -78,35 +78,36 @@ dove $\xrightarrow{d}$ denota la convergenza in distribuzione e $\mathcal{N}(0, 
 1. **Somma di variabili indipendenti:** La funzione caratteristica della somma $S_n$ è il prodotto delle funzioni caratteristiche delle singole $X_i$:
    $$
    \phi_{S_n}(t) = \left[\phi_{X}(t)\right]^n,
-   $$
+$$
    dove $\phi_X(t) = \mathbb{E}[e^{itX}]$ è la funzione caratteristica di $X_i$.
 
 2. **Espansione di Taylor:** Sviluppando $\phi_X(t)$ intorno a $t = 0$:
    $$
    \phi_X(t) = 1 + i\mu t - \frac{\sigma^2 t^2}{2} + o(t^2).
-   $$
+$$
 
 3. **Normalizzazione:** Considerando la somma normalizzata $Z_n$, la funzione caratteristica diventa:
    $$
    \phi_{Z_n}(t) = \left[ 1 + i\frac{\mu t}{\sqrt{n}} - \frac{\sigma^2 t^2}{2n} + o\left(\frac{1}{n}\right) \right]^n.
-   $$
+$$
 
 4. **Limite:** Per $n \to \infty$, usando $(1 + x/n)^n \to e^x$:
    $$
    \phi_{Z_n}(t) \to e^{-\frac{t^2}{2}},
-   $$
+$$
    che è la funzione caratteristica di $\mathcal{N}(0, 1)$.
 
 ---
 
 ### Caso delle medie campionarie
 
-Se consideriamo la **media campionaria** $\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$, possiamo riscrivere il teorema del limite centrale come:
+Se consideriamo la **media campionaria** <span>$\bar{X}_n = \frac{1}{n} \sum_{i=1}^n X_i$</span>, possiamo riscrivere il teorema del limite centrale come:
 $$
 \frac{\bar{X}_n - \mu}{\frac{\sigma}{\sqrt{n}}} \xrightarrow{d} \mathcal{N}(0, 1) \quad \text{quando } n \to \infty.
 $$
 
 ---
+
 ### Assunzioni e generalizzazioni
 
 1. **Assunzioni principali:**

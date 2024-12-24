@@ -43,6 +43,7 @@ menu:
       url: /search/
       weight: 50
 
+
 params:
   # To enable google analytics, opengraph, twitter-cards and schema.
   env: production 
@@ -176,3 +177,6 @@ markup:
     # guessSyntax: true
     # lineNos: true
     # style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
