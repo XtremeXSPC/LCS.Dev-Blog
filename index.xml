@@ -9,14 +9,14 @@
       <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
       <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
     </image>
-    <generator>Hugo -- 0.140.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Dec 2024 23:27:08 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2024 23:44:41 +0000</lastBuildDate>
     <atom:link href="https://lcs-developer.it/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Teorema Del Limite Centrale</title>
       <link>https://lcs-developer.it/posts/teorema-del-limite-centrale/</link>
-      <pubDate>Tue, 24 Dec 2024 23:27:08 +0000</pubDate>
+      <pubDate>Tue, 31 Dec 2024 23:44:41 +0000</pubDate>
       <guid>https://lcs-developer.it/posts/teorema-del-limite-centrale/</guid>
       <description>Una breve spiegazione informale del TCL</description>
     </item>
