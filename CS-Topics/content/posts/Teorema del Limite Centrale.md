@@ -1,6 +1,6 @@
 ---
 author: LCS.Dev
-date: "2024-12-24T23:27:08.316023Z"
+date: "2024-12-31T23:44:41.971392Z"
 title: "Teorema Del Limite Centrale"
 description: Una breve spiegazione informale del TCL
 draft: false
