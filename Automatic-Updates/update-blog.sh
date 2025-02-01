@@ -37,21 +37,21 @@ usage() {
 # ======================================================= #
 # Project variables
 
-blog_dir="${BLOG_DIR:-$HOME/04_LCS.Blog/CS-Topics}"
+blog_dir="${BLOG_DIR:-$LCS_Data/Blog/CS-Topics}"
 sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
 blog_images="${BLOG_IMAGES:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/images}"
-destinationPath="${DESTINATION_PATH:-$HOME/04_LCS.Blog/CS-Topics/content/posts}"
-images_script="${IMAGES_SCRIPT_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/images.py}"
+destinationPath="${DESTINATION_PATH:-$LCS_Data/Blog/CS-Topics/content/posts}"
+images_script="${IMAGES_SCRIPT_PATH:-$LCS_Data/Blog/Automatic-Updates/images.py}"
 hash_file=".file_hashes"
 
 # Generate hashes for files in the destination directory and update frontmatter
-hash_file="${HASH_FILE_PATH:-$HOME/04_LCS.Blog/Automatic-Updates/.file_hashes}"
-hash_generator_script="${HASH_GENERATOR_SCRIPT:-$HOME/04_LCS.Blog/Automatic-Updates/generate_hashes.py}"
-update_post_frontmatter="${UPDATE_POST_FRONTMATTER:-$HOME/04_LCS.Blog/Automatic-Updates/update_frontmatter.py}"
+hash_file="${HASH_FILE_PATH:-$LCS_Data/Blog/Automatic-Updates/.file_hashes}"
+hash_generator_script="${HASH_GENERATOR_SCRIPT:-$LCS_Data/Blog/Automatic-Updates/generate_hashes.py}"
+update_post_frontmatter="${UPDATE_POST_FRONTMATTER:-$LCS_Data/Blog/Automatic-Updates/update_frontmatter.py}"
 
 # GitHub repository variables
 
-repo_path="${REPO_PATH:-/Users/lcs-dev/04_LCS.Blog}"
+repo_path="${REPO_PATH:-/Volumes/LCS.Data/Blog}"
 myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
 
 # ======================================================= #

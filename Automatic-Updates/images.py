@@ -7,9 +7,9 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s [%(levelname)s] %(message)s')
 
 # Read environment variables or use default values
-posts_dir = os.environ.get("BLOG_POSTS_DIR", "/Users/lcs-dev/04_LCS.Blog/CS-Topics/content/posts/")
+posts_dir = os.environ.get("BLOG_POSTS_DIR", "/Volumes/LCS.Data/Blog/CS-Topics/content/posts/")
 attachments_dir = os.environ.get("OBSIDIAN_ATTACHMENTS_DIR", "/Users/lcs-dev/Documents/Obsidian-Vault/XSPC-Vault/Blog/images/")
-static_images_dir = os.environ.get("BLOG_STATIC_IMAGES_DIR", "/Users/lcs-dev/04_LCS.Blog/CS-Topics/static/images/")
+static_images_dir = os.environ.get("BLOG_STATIC_IMAGES_DIR", "/Volumes/LCS.Data/Blog/CS-Topics/static/images/")
 
 # Check if directories exist
 for d, name in [(posts_dir, "Posts"), (attachments_dir, "Attachments"), (static_images_dir, "Static images")]:
