@@ -1,7 +1,7 @@
 ---
 author: LCS.Dev
-date: "2025-02-01T15:32:33.569931Z"
-title: "Teorema Del Limite Centrale"
+date: "2024-12-23T23:11:30.675410"
+title: "Teorema del Limite Centrale"
 description: Una breve spiegazione informale del TCL
 draft: false
 math: true
@@ -20,17 +20,17 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 tags:
-- Probability
-- Math
+  - Probability
+  - Math
 categories:
-- Math
-cover:
-  image:
-  alt:
-  caption:
+  - Math
+cover: 
+  image: 
+  alt: 
+  caption: 
   relative: false
   hidden: true
-editPost:
+editPost: 
   URL: https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/
   Text: Suggest Changes
   appendFilePath: true
