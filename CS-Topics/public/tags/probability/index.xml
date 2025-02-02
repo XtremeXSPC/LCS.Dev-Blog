@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Probability on LCS.Developer</title>
-    <link>https://lcs-developer.it/tags/probability/</link>
+    <link>https://lcs-developer.com/tags/probability/</link>
     <description>Recent content in Probability on LCS.Developer</description>
     <image>
       <title>LCS.Developer</title>
-      <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
-      <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
+      <url>https://lcs-developer.com/images/LCS.Dev-Logo.jpg</url>
+      <link>https://lcs-developer.com/images/LCS.Dev-Logo.jpg</link>
     </image>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Dec 2024 23:11:30 +0000</lastBuildDate>
-    <atom:link href="https://lcs-developer.it/tags/probability/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lcs-developer.com/tags/probability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Teorema del Limite Centrale</title>
-      <link>https://lcs-developer.it/posts/teorema-del-limite-centrale/</link>
+      <link>https://lcs-developer.com/posts/teorema-del-limite-centrale/</link>
       <pubDate>Mon, 23 Dec 2024 23:11:30 +0000</pubDate>
-      <guid>https://lcs-developer.it/posts/teorema-del-limite-centrale/</guid>
+      <guid>https://lcs-developer.com/posts/teorema-del-limite-centrale/</guid>
       <description>Una breve spiegazione informale del TCL</description>
     </item>
   </channel>

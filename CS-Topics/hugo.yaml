@@ -1,5 +1,5 @@
 # Hugo configuration file
-baseURL: "https://lcs-developer.it/"
+baseURL: "https://lcs-developer.com/"
 languageCode: en-us
 title: LCS.Developer
 # paginate: 5

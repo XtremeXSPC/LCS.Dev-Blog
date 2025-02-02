@@ -415,3 +415,4 @@ Se si desidera utilizzare un puntatore all'interno di una struttura in memoria c
 Non è consigliabile utilizzare la struttura proposta con `int* buffer;` perché i puntatori non sono validi attraverso i confini dei processi quando si utilizza la memoria condivisa. Definire `buffer` come un array all'interno della struttura `shared_data` garantisce che l'intero buffer sia effettivamente condiviso tra il produttore e il consumatore, evitando problemi di indirizzamento e garantendo la corretta sincronizzazione e comunicazione tra i processi.
 
 ---
+

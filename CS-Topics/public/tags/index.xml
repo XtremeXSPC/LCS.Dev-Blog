@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on LCS.Developer</title>
-    <link>https://lcs-developer.it/tags/</link>
+    <link>https://lcs-developer.com/tags/</link>
     <description>Recent content in Tags on LCS.Developer</description>
     <image>
       <title>LCS.Developer</title>
-      <url>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</url>
-      <link>https://lcs-developer.it/images/LCS.Dev-Logo.jpg</link>
+      <url>https://lcs-developer.com/images/LCS.Dev-Logo.jpg</url>
+      <link>https://lcs-developer.com/images/LCS.Dev-Logo.jpg</link>
     </image>
-    <generator>Hugo -- 0.142.0</generator>
+    <generator>Hugo -- 0.143.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Dec 2024 23:11:30 +0000</lastBuildDate>
-    <atom:link href="https://lcs-developer.it/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://lcs-developer.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math</title>
-      <link>https://lcs-developer.it/tags/math/</link>
+      <link>https://lcs-developer.com/tags/math/</link>
       <pubDate>Mon, 23 Dec 2024 23:11:30 +0000</pubDate>
-      <guid>https://lcs-developer.it/tags/math/</guid>
+      <guid>https://lcs-developer.com/tags/math/</guid>
       <description></description>
     </item>
     <item>
       <title>Probability</title>
-      <link>https://lcs-developer.it/tags/probability/</link>
+      <link>https://lcs-developer.com/tags/probability/</link>
       <pubDate>Mon, 23 Dec 2024 23:11:30 +0000</pubDate>
-      <guid>https://lcs-developer.it/tags/probability/</guid>
+      <guid>https://lcs-developer.com/tags/probability/</guid>
       <description></description>
     </item>
     <item>
       <title>Coding</title>
-      <link>https://lcs-developer.it/tags/coding/</link>
+      <link>https://lcs-developer.com/tags/coding/</link>
       <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.it/tags/coding/</guid>
+      <guid>https://lcs-developer.com/tags/coding/</guid>
       <description></description>
     </item>
     <item>
       <title>Operating-Systems</title>
-      <link>https://lcs-developer.it/tags/operating-systems/</link>
+      <link>https://lcs-developer.com/tags/operating-systems/</link>
       <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.it/tags/operating-systems/</guid>
+      <guid>https://lcs-developer.com/tags/operating-systems/</guid>
       <description></description>
     </item>
     <item>
       <title>Virtual-Memory</title>
-      <link>https://lcs-developer.it/tags/virtual-memory/</link>
+      <link>https://lcs-developer.com/tags/virtual-memory/</link>
       <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.it/tags/virtual-memory/</guid>
+      <guid>https://lcs-developer.com/tags/virtual-memory/</guid>
       <description></description>
     </item>
     <item>
       <title>Tech</title>
-      <link>https://lcs-developer.it/tags/tech/</link>
+      <link>https://lcs-developer.com/tags/tech/</link>
       <pubDate>Tue, 17 Dec 2024 20:30:30 +0000</pubDate>
-      <guid>https://lcs-developer.it/tags/tech/</guid>
+      <guid>https://lcs-developer.com/tags/tech/</guid>
       <description></description>
     </item>
   </channel>
