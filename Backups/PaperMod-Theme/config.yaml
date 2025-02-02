@@ -1,6 +1,7 @@
-# This is the main configuration file for my personal site.
-baseURL: "https://lcs-developer.it/"
-title: LCS.Dev - CS Topics
+# Hugo configuration file
+baseURL: "https://lcs-developer.com/"
+languageCode: en-us
+title: LCS.Developer
 # paginate: 5
 theme: [PaperMod]
 
@@ -29,16 +30,28 @@ menu:
       name: Tags
       url: /tags/
       weight: 20
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 40
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 50
+
 
 params:
   # To enable google analytics, opengraph, twitter-cards and schema.
   env: production 
   title: LCS.Dev - CS Topics
   description: "Journey of a Computer Science Student"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: LCS.Dev
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  keywords: [Blog, Portfolio, Computer Science, Programming, Technology]
+  author: ["LCS.Dev"]
+  images: ["/images/LCS.Dev-Logo.jpg"]
   DateFormat: "January 2, 2006"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
@@ -48,7 +61,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
@@ -60,24 +73,38 @@ params:
   showtoc: false
   tocopen: false
 
+ # customCSS:
+ #   - css/extended/custom.css
+
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "/favicon/favicon.ico"
+    favicon16x16: "/favicon/favicon-16x16.png"
+    favicon32x32: "/favicon/favicon-32x32.png"
+    apple_touch_icon: "/favicon/apple-touch-icon.png"
+    safari_pinned_tab: "/favicon/safari-pinned-tab.svg"
+    theme_color: "#ffffff" # Colore principale del tema (opzionale)
+    msapplication_TileColor: "#ffffff" # Colore Tile per Microsoft (opzionale)
 
+  # Title and icon for the browser tab
   label:
-    text: "Home"
-    icon: /apple-touch-icon.png
+    text: "LCS.Dev - CS Topics"
+    icon: "👨‍💻"
     iconHeight: 35
 
  # Home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Title: "Welcome to LCS.Dev - CS Topics 👨‍💻"
+    Content: |
+      Hi! I'm **LCS.Dev**, a Computer Science student passionate about programming, 
+      technology, and free software. I write about: **Computer Science**, **Programming**, **Technology** and **Math**.
+      
+      My main focus is on **concurrent systems**, a topic I find both challenging and fascinating.  
+      I believe in learning by sharing, and this blog is where I document my journey, explore new ideas,
+      and connect with like-minded enthusiasts.  
+
+      Enjoy reading, and happy coding! 🚀
 
   socialIcons:
     - name: "GitHub"
@@ -89,13 +116,13 @@ params:
 
   # Profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
+    enabled: false # Needs to be explicitly set
     title: LCS.Dev
     subtitle: "Who am I? 🤔"
-    imageUrl: "<img location>"
+    imageUrl: "/images/LCS.Dev-Logo.jpg"
     imageWidth: 120
     imageHeight: 120
-    imageTitle: my image
+    imageTitle: "LCS.Dev-Logo.jpg"
     buttons:
       - name: Posts
         url: posts
@@ -105,11 +132,11 @@ params:
   # Search
   analytics:
     google:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "CPQPKX3QPR"
     bing:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: ""
     yandex:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: ""
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -117,7 +144,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -133,6 +160,13 @@ params:
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
 
+# Search feature
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
 markup:
@@ -143,3 +177,6 @@ markup:
     # guessSyntax: true
     # lineNos: true
     # style: monokai
+  goldmark:
+    renderer:
+      unsafe: true
