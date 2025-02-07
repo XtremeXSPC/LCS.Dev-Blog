@@ -1,5 +1,8 @@
 // Importa Modal dall'API di Obsidian
-const { Modal, Notice } = require('obsidian');
+const { Modal } = require('obsidian');
+
+// Importa la classe Notice per mostrare messaggi all'utente
+import Notice from 'src/notice';
 
 // Classe per creare un modal per inserire il titolo del post
 class BlogPostModal extends Modal {
@@ -87,7 +90,6 @@ editPost:
   appendFilePath: true
 ---
 `;
-
        // Controlla se il file esiste già
 	   const existingFile = app.vault.getAbstractFileByPath(filePath);
 	   if (existingFile) {
