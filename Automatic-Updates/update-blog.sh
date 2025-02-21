@@ -224,7 +224,7 @@ stage_and_commit_changes() {
         log "No changes to stage or commit."
     else
         git add . || error_exit "Failed to stage changes."
-        local commit_message="New Blog Post on $(date +'%Y-%m-%d %H:%M:%S')"
+        local commit_message="New blog update on $(date +'%Y-%m-%d %H:%M:%S')"
         log "Committing changes with message: $commit_message"
         git commit -m "$commit_message" || error_exit "Git commit failed."
     fi
