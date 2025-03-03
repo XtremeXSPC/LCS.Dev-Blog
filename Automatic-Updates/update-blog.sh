@@ -4,7 +4,9 @@
 # Logging Setup
 # Configurare il logging all'inizio per catturare tutti i log, compresi quelli generati dalle funzioni chiamate tramite argomenti.
 
-logFile="./script.log"
+# Ottieni il percorso assoluto della directory dello script
+SCRIPT_DIR="$(cd "$(dirname "${(%):-%N}")" && pwd)"
+logFile="${SCRIPT_DIR}/script.log"
 exec > >(tee -a "$logFile") 2>&1
 
 # ======================================================= #
@@ -12,7 +14,25 @@ exec > >(tee -a "$logFile") 2>&1
 # Treat unset variables as an error, and prevent errors in a pipeline from being masked.
 set -euo pipefail
 
+# Miglioramento: Salva la directory corrente all'inizio
+INITIAL_PWD="$(pwd)"
+
+# Gestione degli errori migliorata
+cleanup() {
+    # Ritorna alla directory originale in caso di errore o al termine dello script
+    cd "$INITIAL_PWD" 2>/dev/null || true
+    log "Script terminato. Log salvato in $logFile"
+}
+
+error_exit() {
+    echo "[ERROR] $1" >&2
+    cleanup
+    exit 1
+}
+
+# Trap migliorato per catturare segnali di interruzione
 trap 'error_exit "An unexpected error occurred. Check the log for details."' ERR
+trap 'cleanup' EXIT
 
 # ======================================================= #
 # Function to show script usage
@@ -37,12 +57,12 @@ usage() {
 # ======================================================= #
 # Project variables
 
+# Miglioramento: Aggiunto escape per spazi nei percorsi
 blog_dir="${BLOG_DIR:-$LCS_Data/Blog/CS-Topics}"
 sourcePath="${SOURCE_PATH:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/posts}"
 blog_images="${BLOG_IMAGES:-$HOME/Documents/Obsidian-Vault/XSPC-Vault/Blog/images}"
 destinationPath="${DESTINATION_PATH:-$LCS_Data/Blog/CS-Topics/content/posts}"
 images_script="${IMAGES_SCRIPT_PATH:-$LCS_Data/Blog/Automatic-Updates/images.py}"
-hash_file=".file_hashes"
 
 # Generate hashes for files in the destination directory and update frontmatter
 hash_file="${HASH_FILE_PATH:-$LCS_Data/Blog/Automatic-Updates/.file_hashes}"
@@ -50,7 +70,6 @@ hash_generator_script="${HASH_GENERATOR_SCRIPT:-$LCS_Data/Blog/Automatic-Updates
 update_post_frontmatter="${UPDATE_POST_FRONTMATTER:-$LCS_Data/Blog/Automatic-Updates/update_frontmatter.py}"
 
 # GitHub repository variables
-
 repo_path="${REPO_PATH:-/Volumes/LCS.Data/Blog}"
 myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
 
@@ -59,14 +78,6 @@ myrepo="${MY_REPO:-git@github.com:XtremeXSPC/LCS.Dev-Blog.git}"
 
 log() {
     echo "[INFO] $1"
-}
-
-# ======================================================= #
-# Error handling
-
-error_exit() {
-    echo "[ERROR] $1" >&2
-    exit 1
 }
 
 # ======================================================= #
@@ -90,6 +101,15 @@ check_dir() {
     fi
 }
 
+# Miglioramento: Aggiungi funzione per verificare se i file esistono
+check_file() {
+    local file=$1
+    local type=$2
+    if [ ! -f "$file" ]; then
+        error_exit "$type file does not exist: $file"
+    fi
+}
+
 # ======================================================= #
 # Initialize the Git repository
 
@@ -107,7 +127,13 @@ initialize_git() {
             log "Adding remote origin..."
             git remote add origin "$myrepo" || error_exit "Failed to add remote origin."
         else
-            log "Remote origin already exists."
+            # Miglioramento: verifica connessione al repository remoto
+            log "Remote origin already exists. Checking connection..."
+            if ! git ls-remote --exit-code origin &>/dev/null; then
+                log "Warning: Unable to connect to remote repository. Check your network connection and SSH keys."
+            else
+                log "Connection to remote repository verified."
+            fi
         fi
     fi
 }
@@ -119,7 +145,16 @@ sync_posts() {
     log "Syncing posts from source to destination..."
     check_dir "$sourcePath" "Source"
     check_dir "$destinationPath" "Destination"
+    
+    # Miglioramento: creazione di backup prima della sincronizzazione
+    local backup_dir="${destinationPath}_backup_$(date +%Y%m%d_%H%M%S)"
+    if [ -d "$destinationPath" ] && [ "$(ls -A "$destinationPath" 2>/dev/null)" ]; then
+        log "Creating backup of destination directory to $backup_dir"
+        cp -r "$destinationPath" "$backup_dir" || log "Warning: Backup creation failed, continuing anyway"
+    fi
+    
     rsync -av --delete "${sourcePath}/" "${destinationPath}/" || error_exit "rsync failed."
+    log "Sync completed successfully."
 }
 
 # ======================================================= #
@@ -149,40 +184,61 @@ find_image() {
 generate_file_hashes() {
     log "Generating file hashes for destination directory: $destinationPath"
     check_command python3
-    if [ ! -f "$hash_generator_script" ]; then
-        error_exit "Hash generator script not found at $hash_generator_script"
+    check_file "$hash_generator_script" "Hash generator script"
+    check_dir "$destinationPath" "Destination"
+
+    # Miglioramento: Backup del file hash precedente
+    if [ -f "$hash_file" ]; then
+        cp "$hash_file" "${hash_file}.backup" || log "Warning: Could not create backup of hash file"
     fi
 
     python3 "$hash_generator_script" "$destinationPath" || error_exit "Failed to generate file hashes."
+    
+    # Verifica che il file hash sia stato generato correttamente
+    if [ ! -f "$hash_file" ]; then
+        error_exit "Hash file was not created at $hash_file"
+    fi
+    
     log "File hashes successfully updated."
 }
 
 # ======================================================= #
 # Load hashes from the hash_file
 
-typeset -A file_hashes
-
-if [[ -f "$hash_file" ]]; then
-    while IFS=$'\t' read -r file hash; do
-        file_hashes["$file"]=$hash
-    done < "$hash_file"
-fi
-
-# Add log to check the loading of hashes
-log "Loaded file hashes:"
-for key in ${(k)file_hashes}; do
-    log "$key: ${file_hashes[$key]}"
-done
+load_file_hashes() {
+    typeset -gA file_hashes
+    
+    if [[ -f "$hash_file" ]]; then
+        log "Loading file hashes from $hash_file"
+        while IFS=$'\t' read -r file hash || [ -n "$file" ]; do
+            if [[ -n "$file" && -n "$hash" ]]; then
+                file_hashes["$file"]=$hash
+            fi
+        done < "$hash_file"
+        
+        # Add log to check the loading of hashes
+        log "Loaded ${#file_hashes} file hashes."
+    else
+        log "Hash file not found at $hash_file. Will be created during the generation step."
+        file_hashes=()
+    fi
+}
 
 # ======================================================= #
-# Main logic for updating frontmatter (example placeholder)
+# Main logic for updating frontmatter
 
 update_frontmatter() {
     log "Updating frontmatter for files in $destinationPath"
     check_command python3
-    if [ ! -f "$update_post_frontmatter" ]; then
-        error_exit "Update frontmatter script not found at $update_post_frontmatter"
+    check_file "$update_post_frontmatter" "Update frontmatter script"
+    check_dir "$destinationPath" "Destination"
+    
+    # Verify hash file exists before proceeding
+    if [ ! -f "$hash_file" ]; then
+        log "Hash file not found. Generating hashes first..."
+        generate_file_hashes
     fi
+    
     # Send the hash file path as an argument
     python3 "$update_post_frontmatter" "$destinationPath" "$hash_file" || error_exit "Failed to update frontmatter."
     log "Frontmatter update completed."
@@ -193,9 +249,8 @@ update_frontmatter() {
 
 process_markdown() {
     log "Processing Markdown files with images.py..."
-    if [ ! -f "$images_script" ]; then
-        error_exit "Python script images.py not found at $images_script"
-    fi
+    check_file "$images_script" "Python script images.py"
+    
     python3 "$images_script" || error_exit "Failed to process Markdown files with images.py."
     log "Markdown processing completed."
 }
@@ -205,12 +260,28 @@ process_markdown() {
 
 build_hugo_site() {
     log "Building the Hugo site..."
-    if ! hugo --source "$blog_dir"; then
+    check_command hugo
+    check_dir "$blog_dir" "Blog"
+    
+    # Salvataggio della directory corrente
+    local current_dir="$(pwd)"
+    
+    # Cambio alla directory del blog
+    cd "$blog_dir" || error_exit "Failed to change directory to $blog_dir"
+    
+    if ! hugo; then
+        cd "$current_dir" || true  # Ritorna alla directory originale in caso di errore
         error_exit "Hugo build failed."
     fi
-    if [ ! -d "$blog_dir/public" ]; then
+    
+    if [ ! -d "public" ]; then
+        cd "$current_dir" || true
         error_exit "Hugo build completed, but 'public' directory was not created."
     fi
+    
+    # Ritorno alla directory originale
+    cd "$current_dir" || error_exit "Failed to return to original directory"
+    
     log "Hugo site built successfully."
 }
 
@@ -219,14 +290,24 @@ build_hugo_site() {
 
 stage_and_commit_changes() {
     log "Staging changes for Git..."
+    
+    # Cambio alla directory del repository
+    cd "$repo_path" || error_exit "Failed to change directory to $repo_path"
+    
+    # Verifica se il repository è inizializzato
+    if [ ! -d ".git" ]; then
+        error_exit "Git repository not initialized. Run initialize_git first."
+    fi
+    
     # Check if there are changes
-    if git diff --quiet && git diff --cached --quiet; then
-        log "No changes to stage or commit."
-    else
+    if git status --porcelain | grep -q .; then
         git add . || error_exit "Failed to stage changes."
         local commit_message="New blog update on $(date +'%Y-%m-%d %H:%M:%S')"
         log "Committing changes with message: $commit_message"
         git commit -m "$commit_message" || error_exit "Git commit failed."
+        log "Changes committed successfully."
+    else
+        log "No changes to stage or commit."
     fi
 }
 
@@ -235,12 +316,24 @@ stage_and_commit_changes() {
 
 push_to_main() {
     log "Pushing changes to the main branch on GitHub..."
-    if git rev-parse --verify main &>/dev/null; then
-        git checkout main || error_exit "Failed to checkout main branch."
+    
+    # Cambio alla directory del repository
+    cd "$repo_path" || error_exit "Failed to change directory to $repo_path"
+    
+    # Verifica la presenza del branch main
+    if ! git show-ref --verify --quiet refs/heads/main; then
+        log "Main branch does not exist locally. Creating it..."
+        # Crea il branch main se non esiste
+        git checkout -b main || error_exit "Failed to create main branch."
     else
-        error_exit "Main branch does not exist locally."
+        git checkout main || error_exit "Failed to checkout main branch."
     fi
 
+    # Verifica connessione al repository remoto prima di tentare il push
+    if ! git ls-remote --exit-code origin &>/dev/null; then
+        error_exit "Cannot connect to remote repository. Check your network connection and SSH keys."
+    fi
+    
     git push origin main || error_exit "Failed to push to main branch."
     log "Changes pushed to main branch successfully."
 }
@@ -251,13 +344,22 @@ push_to_main() {
 deploy_to_hostinger() {
     log "Deploying the public folder to the hostinger branch..."
     
+    # Cambio alla directory del repository
+    cd "$repo_path" || error_exit "Failed to change directory to $repo_path"
+    
+    # Verifica esistenza della directory public
+    local public_dir="CS-Topics/public"
+    if [ ! -d "$public_dir" ]; then
+        error_exit "Public directory '$public_dir' does not exist. Run build_hugo_site first."
+    fi
+    
     # Check if 'hostinger-deploy' branch exists and delete it
     if git rev-parse --verify hostinger-deploy &>/dev/null; then
         git branch -D hostinger-deploy || error_exit "Failed to delete existing hostinger-deploy branch."
     fi
 
     # Create a new 'hostinger-deploy' branch from 'public' directory
-    git subtree split --prefix "CS-Topics/public" -b hostinger-deploy || error_exit "git subtree split failed."
+    git subtree split --prefix "$public_dir" -b hostinger-deploy || error_exit "git subtree split failed."
 
     # Push the 'hostinger-deploy' branch to 'hostinger' branch on origin
     git push origin hostinger-deploy:hostinger --force || error_exit "Failed to push to hostinger branch."
@@ -273,8 +375,42 @@ deploy_to_hostinger() {
 
 if [[ $# -gt 0 ]]; then
     case "$1" in
-        generate_file_hashes|initialize_git|sync_posts|update_frontmatter|process_markdown|build_hugo_site|stage_and_commit_changes|push_to_main|deploy_to_hostinger)
-            "$1"
+        generate_file_hashes)
+            load_file_hashes
+            generate_file_hashes
+            exit 0
+            ;;
+        initialize_git)
+            initialize_git
+            exit 0
+            ;;
+        sync_posts)
+            sync_posts
+            exit 0
+            ;;
+        update_frontmatter)
+            load_file_hashes
+            update_frontmatter
+            exit 0
+            ;;
+        process_markdown)
+            process_markdown
+            exit 0
+            ;;
+        build_hugo_site)
+            build_hugo_site
+            exit 0
+            ;;
+        stage_and_commit_changes)
+            stage_and_commit_changes
+            exit 0
+            ;;
+        push_to_main)
+            push_to_main
+            exit 0
+            ;;
+        deploy_to_hostinger)
+            deploy_to_hostinger
             exit 0
             ;;
         help|-h|--help)
@@ -297,9 +433,8 @@ for cmd in git rsync python3 hugo; do
     check_command "$cmd"
 done
 
-# Ensure script is running from the correct directory
-SCRIPT_DIR="$(cd "$(dirname "${(%):-%N}")" && pwd)"  # Zsh-specific to get the script directory
-cd "$SCRIPT_DIR" || error_exit "Failed to change to script directory"
+# Carica gli hash dei file
+load_file_hashes
 
 # Execute all functions in order
 initialize_git

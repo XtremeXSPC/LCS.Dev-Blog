@@ -148,8 +148,7 @@ For the above proof to be valid, we need the Lindeberg-Lévy condition, which es
 
 ## Sample Means and the CLT
 
-A particularly important application of the CLT relates to sample means. Let's define the sample mean: 
-$$ \bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i $$
+A particularly important application of the CLT relates to sample means. Let's define the sample mean: $$ \bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i $$
 
 The CLT can be restated in terms of the sample mean: $$ \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{d} \mathcal{N}(0, 1) \quad \text{as } n \to \infty $$
 
