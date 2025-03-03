@@ -19,21 +19,20 @@ ShowPostNavLinks: true
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 tags:
-- Tech
-cover:
-  image:
-  alt:
-  caption:
+  - Tech
+categories:
+  - Free Time
+cover: 
+  image: 
+  alt: 
+  caption: 
   relative: false
   hidden: true
-editPost:
+editPost: 
   URL: https://github.com/XtremeXSPC/LCS.Dev-Blog/tree/hostinger/
   Text: Suggest Changes
   appendFilePath: true
-categories:
-- "Uncategorized"
 ---
-
 
 Hello everyone! My name is Costantino. I’m a computer science student and a tech enthusiast. The main purpose of this blog is to explore and share insights on some of the most exciting topics in the fascinating world of computer science.
 
