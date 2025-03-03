@@ -21,52 +21,10 @@
       <description>A detailed explanation of virtual memory pagination with C implementation examples.</description>
     </item>
     <item>
-      <title>Memory Pagination - A Comprehensive Guide</title>
-      <link>https://lcs-developer.com/posts_backup_20250303_180603/memory-pagination---a-comprehensive-guide/</link>
-      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts_backup_20250303_180603/memory-pagination---a-comprehensive-guide/</guid>
-      <description>A detailed explanation of virtual memory pagination with C implementation examples.</description>
-    </item>
-    <item>
-      <title>Memory Pagination - A Comprehensive Guide</title>
-      <link>https://lcs-developer.com/posts_backup_20250303_181233/memory-pagination---a-comprehensive-guide/</link>
-      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts_backup_20250303_181233/memory-pagination---a-comprehensive-guide/</guid>
-      <description>A detailed explanation of virtual memory pagination with C implementation examples.</description>
-    </item>
-    <item>
-      <title>Memory Pagination - A Comprehensive Guide</title>
-      <link>https://lcs-developer.com/posts_backup_20250303_181247/memory-pagination---a-comprehensive-guide/</link>
-      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts_backup_20250303_181247/memory-pagination---a-comprehensive-guide/</guid>
-      <description>A detailed explanation of virtual memory pagination with C implementation examples.</description>
-    </item>
-    <item>
       <title>Producer-Consumer Problem with POSIX Synchronization</title>
       <link>https://lcs-developer.com/posts/producer---consumer-posix/</link>
       <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
       <guid>https://lcs-developer.com/posts/producer---consumer-posix/</guid>
-      <description>A robust solution to avoid race conditions in concurrent programming.</description>
-    </item>
-    <item>
-      <title>Producer-Consumer Problem with POSIX Synchronization</title>
-      <link>https://lcs-developer.com/posts_backup_20250303_180603/producer---consumer-posix/</link>
-      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts_backup_20250303_180603/producer---consumer-posix/</guid>
-      <description>A robust solution to avoid race conditions in concurrent programming.</description>
-    </item>
-    <item>
-      <title>Producer-Consumer Problem with POSIX Synchronization</title>
-      <link>https://lcs-developer.com/posts_backup_20250303_181233/producer---consumer-posix/</link>
-      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts_backup_20250303_181233/producer---consumer-posix/</guid>
-      <description>A robust solution to avoid race conditions in concurrent programming.</description>
-    </item>
-    <item>
-      <title>Producer-Consumer Problem with POSIX Synchronization</title>
-      <link>https://lcs-developer.com/posts_backup_20250303_181247/producer---consumer-posix/</link>
-      <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts_backup_20250303_181247/producer---consumer-posix/</guid>
       <description>A robust solution to avoid race conditions in concurrent programming.</description>
     </item>
   </channel>
