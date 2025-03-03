@@ -160,6 +160,7 @@ Logical Address (12,345)
 Physical Address (32,825)
 ```
 
+---
 ## Implementing Paging in C: A Practical Example
 
 Let's explore how we might implement a simplified paging system in C. This example won't be a complete operating system implementation, but it will demonstrate the core concepts.
@@ -493,6 +494,7 @@ int main() {
 }
 ```
 
+---
 ## Paging vs. Segmentation: A Deeper Comparison
 
 Now that we understand paging better, let's compare it more thoroughly with segmentation, another memory management approach:
@@ -558,6 +560,7 @@ Physical Memory with Segmentation
 
 Most modern systems use a hybrid approach called **paged segmentation** or **segmented paging**. Let's explore how this works:
 
+---
 ## Combining Paging and Segmentation: The Best of Both Worlds
 
 In modern systems, we often see a hybrid approach that leverages the benefits of both paging and segmentation. Let's examine how this works in practice:
@@ -659,6 +662,7 @@ Here's a simplified version of how it works:
 
 This is a complex but powerful approach that has supported decades of backward compatibility while allowing modern operating systems to implement efficient memory management.
 
+---
 ## Practical Implementations: Page Replacement Algorithms
 
 When physical memory is full and a new page needs to be loaded, the operating system must choose a page to evict. Several algorithms exist for this purpose, each with different characteristics. Let's implement a few in C:
@@ -843,6 +847,7 @@ uint32_t replace_page_clock(ClockAlgorithm* clock) {
 }
 ```
 
+---
 ## Real-World Considerations and Challenges
 
 ### Large Page Tables
@@ -931,6 +936,7 @@ While 4KB is the standard page size for many systems, larger pages (2MB or 1GB) 
 
 The tradeoff is that larger pages can lead to more internal fragmentation. It's a classic space-time tradeoff in computing.
 
+---
 ## Conclusion
 
 Paging is a foundational technique in modern computing that enables efficient memory management, process isolation, and the illusion of unlimited memory through virtual memory. By dividing memory into fixed-size chunks, operating systems can allocate and manage memory with remarkable efficiency, even under the complex demands of multitasking environments.
