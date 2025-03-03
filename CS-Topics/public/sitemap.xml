@@ -8,10 +8,10 @@
     <loc>https://lcs-developer.com/</loc>
     <lastmod>2024-12-23T23:11:30+00:00</lastmod>
   </url><url>
-    <loc>https://lcs-developer.com/tags/math/</loc>
+    <loc>https://lcs-developer.com/categories/math/</loc>
     <lastmod>2024-12-23T23:11:30+00:00</lastmod>
   </url><url>
-    <loc>https://lcs-developer.com/categories/math/</loc>
+    <loc>https://lcs-developer.com/tags/math/</loc>
     <lastmod>2024-12-23T23:11:30+00:00</lastmod>
   </url><url>
     <loc>https://lcs-developer.com/posts/</loc>
@@ -23,13 +23,13 @@
     <loc>https://lcs-developer.com/tags/</loc>
     <lastmod>2024-12-23T23:11:30+00:00</lastmod>
   </url><url>
-    <loc>https://lcs-developer.com/posts/teorema-del-limite-centrale/</loc>
+    <loc>https://lcs-developer.com/posts/the-central-limit-theorem/</loc>
     <lastmod>2024-12-23T23:11:30+00:00</lastmod>
   </url><url>
     <loc>https://lcs-developer.com/tags/coding/</loc>
     <lastmod>2024-12-19T00:36:58+00:00</lastmod>
   </url><url>
-    <loc>https://lcs-developer.com/posts/how-memory-pagination-works/</loc>
+    <loc>https://lcs-developer.com/posts/memory-pagination---a-comprehensive-guide/</loc>
     <lastmod>2024-12-19T00:36:58+00:00</lastmod>
   </url><url>
     <loc>https://lcs-developer.com/categories/operating-systems/</loc>
@@ -38,7 +38,7 @@
     <loc>https://lcs-developer.com/tags/operating-systems/</loc>
     <lastmod>2024-12-19T00:36:58+00:00</lastmod>
   </url><url>
-    <loc>https://lcs-developer.com/posts/produttore---consumatore-posix/</loc>
+    <loc>https://lcs-developer.com/posts/producer---consumer-posix/</loc>
     <lastmod>2024-12-19T00:36:58+00:00</lastmod>
   </url><url>
     <loc>https://lcs-developer.com/tags/virtual-memory/</loc>

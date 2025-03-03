@@ -9,30 +9,30 @@
       <url>https://lcs-developer.com/images/LCS.Dev-Logo.jpg</url>
       <link>https://lcs-developer.com/images/LCS.Dev-Logo.jpg</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Dec 2024 23:11:30 +0000</lastBuildDate>
     <atom:link href="https://lcs-developer.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Teorema del Limite Centrale</title>
-      <link>https://lcs-developer.com/posts/teorema-del-limite-centrale/</link>
+      <title>The Central Limit Theorem</title>
+      <link>https://lcs-developer.com/posts/the-central-limit-theorem/</link>
       <pubDate>Mon, 23 Dec 2024 23:11:30 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts/teorema-del-limite-centrale/</guid>
-      <description>Una breve spiegazione informale del TCL</description>
+      <guid>https://lcs-developer.com/posts/the-central-limit-theorem/</guid>
+      <description>A comprehensive explanation of the Central Limit Theorem with proofs and applications.</description>
     </item>
     <item>
-      <title>How Memory Pagination Works</title>
-      <link>https://lcs-developer.com/posts/how-memory-pagination-works/</link>
+      <title>Memory Pagination - A Comprehensive Guide</title>
+      <link>https://lcs-developer.com/posts/memory-pagination---a-comprehensive-guide/</link>
       <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts/how-memory-pagination-works/</guid>
-      <description>A brief introduction to virtual memory abstraction.</description>
+      <guid>https://lcs-developer.com/posts/memory-pagination---a-comprehensive-guide/</guid>
+      <description>A detailed explanation of virtual memory pagination with C implementation examples.</description>
     </item>
     <item>
-      <title>Produttore - Consumatore Posix</title>
-      <link>https://lcs-developer.com/posts/produttore---consumatore-posix/</link>
+      <title>Producer-Consumer Problem with POSIX Synchronization</title>
+      <link>https://lcs-developer.com/posts/producer---consumer-posix/</link>
       <pubDate>Thu, 19 Dec 2024 00:36:58 +0000</pubDate>
-      <guid>https://lcs-developer.com/posts/produttore---consumatore-posix/</guid>
-      <description>A simple solution to avoid race conditions.</description>
+      <guid>https://lcs-developer.com/posts/producer---consumer-posix/</guid>
+      <description>A robust solution to avoid race conditions in concurrent programming.</description>
     </item>
     <item>
       <title>Why this blog and how I manage it</title>
