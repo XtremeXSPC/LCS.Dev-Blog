@@ -20,13 +20,12 @@ I aim to make this blog not only informative but also a resource to inspire and 
 
 ## My Tech Stack 🛠️
 
-I love writing clean, efficient, and maintainable code, and I work with a variety of languages:
+I love writing clean, efficient, and maintainable code, and I work with a variety of languages (Learning in progress):
 
 - **C** / **C++**: The building blocks for system-level programming.  
 - **Java** & **Kotlin**: Strong tools for scalable, reliable applications.  
 - **Rust**: Safety, speed, and concurrency at its finest.  
-- **Python**: Perfect for scripting, automation, and data tasks.  
-- **Go**: Simple yet powerful for concurrent and scalable systems.  
+- **Python**: Perfect for scripting, automation, and data tasks.   
 
 I'm also a **Linux** enthusiast and advocate for **Free Software**, believing that technology thrives when it's open, collaborative, and accessible to everyone.
 
@@ -46,6 +45,6 @@ I believe that writing is one of the best ways to learn. Whether it’s document
 
 I hope you find something valuable here—whether it’s a new concept, a helpful guide, or just some inspiration to keep coding.  
 
-Thank you for stopping by, and happy reading! 🚀  
+Thank you for stopping by, and happy reading! 
 
 ---
